@@ -28,6 +28,8 @@ return new class extends Migration
             $table->integer('sqPrice');
             $table->integer('roomCount');
             $table->enum('compassDirection',['NORTH','EAST','SOUTH','WEST']);
+            $table->boolean('hasBalcony')->default(true);
+            $table->boolean('isSold')->default(false);
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
