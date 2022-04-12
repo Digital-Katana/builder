@@ -103,11 +103,11 @@ $color-main : #feed01;
 
 @font-face {
 	font-family: 'Mont';
-	src: url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Regular.eot');
+	src: url('../fonts/Mont-Regular.eot');
 	src: local('☺'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Regular.woff') format('woff'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Regular.ttf') format('truetype'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Regular.svg') format('svg');
+		url('../fonts/Mont-Regular.woff') format('woff'),
+		url('../fonts/Mont-Regular.ttf') format('truetype'),
+		url('../fonts/Mont-Regular.svg') format('svg');
 	font-weight: 400;
 	font-style: normal;
 }
@@ -115,11 +115,11 @@ $color-main : #feed01;
 
 @font-face {
 	font-family: 'Mont';
-	src: url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Bold.eot');
+	src: url('../fonts/Mont-Bold.eot');
 	src: local('☺'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Bold.woff') format('woff'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Bold.ttf') format('truetype'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Bold.svg') format('svg');
+		url('../fonts/Mont-Bold.woff') format('woff'),
+		url('../fonts/Mont-Bold.ttf') format('truetype'),
+		url('../fonts/Mont-Bold.svg') format('svg');
 	font-weight: 600;
 	font-style: normal;
 }
@@ -127,11 +127,11 @@ $color-main : #feed01;
 
 @font-face {
 	font-family: 'Mont';
-	src: url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Heavy.eot');
+	src: url('../fonts/Mont-Heavy.eot');
 	src: local('☺'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Heavy.woff') format('woff'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Heavy.ttf') format('truetype'),
-		url('../../../usaxelo-mshenebloba-master/consto/fonts/Mont-Heavy.svg') format('svg');
+		url('../fonts/Mont-Heavy.woff') format('woff'),
+		url('../fonts/Mont-Heavy.ttf') format('truetype'),
+		url('../fonts/Mont-Heavy.svg') format('svg');
 	font-weight: 800;
 	font-style: normal;
 }
@@ -243,7 +243,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 
 
 /* SIDE WIDGET */
-.side-widget{width: 400px; height: 100vh; max-width: 100%; display: flex; flex-wrap: wrap; align-items: center; position: fixed; left: -100%; top: 0; @include transition-cubic; background: #232222; background-image: url("../../../usaxelo-mshenebloba-master/consto/images/header-pattern.png"); background-position: center; background-size: cover; z-index: 5; box-shadow: 0 0 60px #000; padding:20px 30px; color: #fff;
+.side-widget{width: 400px; height: 100vh; max-width: 100%; display: flex; flex-wrap: wrap; align-items: center; position: fixed; left: -100%; top: 0; @include transition-cubic; background: #232222; background-image: url("../images/header-pattern.png"); background-position: center; background-size: cover; z-index: 5; box-shadow: 0 0 60px #000; padding:20px 30px; color: #fff;
 	.inner{display: inline-block; overflow-y: auto;}
 	.logo{width: 100%; display: block; margin-bottom: 40px;
 		img{height: 40px;}}
@@ -346,7 +346,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 
 
 /* SLIDER */
-.slider{width: 100%; height: 100vh; display: flex; flex-wrap: wrap; background-color:$color-dark; background-image: url("../../../usaxelo-mshenebloba-master/consto/images/header-pattern.png"); background-size: cover; position: relative;
+.slider{width: 100%; height: 100vh; display: flex; flex-wrap: wrap; background-color:$color-dark; background-image: url("../images/header-pattern.png"); background-size: cover; position: relative;
 	.container{position: relative; padding-top: 150px; display: flex; flex-wrap: wrap;}
 	.slider-content{width: calc(50% - 120px); position: relative; overflow: hidden; margin: 0; margin-right: 40px;
 		.swiper-slide{ display: flex; align-items: center;}
@@ -375,7 +375,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 
 
 /* PAGE HEADER */
-.page-header{width: 100%; height: 500px; display: flex; flex-wrap: wrap; align-items: center; background-color:$color-dark; background-image: url("../../../usaxelo-mshenebloba-master/consto/images/header-pattern.png"); background-size: cover; position: relative;
+.page-header{width: 100%; height: 500px; display: flex; flex-wrap: wrap; align-items: center; background-color:$color-dark; background-image: url("../images/header-pattern.png"); background-size: cover; position: relative;
 	.container{position: relative; color: #fff; padding-top: 98px;
 		h6{ width: 100%; display: block; opacity: 0.7; margin-bottom: 50px;}
 		h1{ width: 100%; display: block; font-size: 7vw; font-weight: 800; line-height: 1;}
@@ -408,7 +408,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 .icon-content{width: 100%; display: flex; flex-wrap: wrap; border: 1px solid #e8e8e8; padding:45px 30px; /* box-shadow: 7px 7px 0 #f9f9f9; */ position: relative;
 	&:before{content: ""; width: 100%; height: 100%; background: $color-main; position: absolute; left: 0; top: 0; @include transition; opacity: 0; z-index: -1; box-shadow: 0 30px 30px #eee;}
 	&:hover{ border-color: $color-main;}
-	&:hover:after{content: ""; width: 30%; height: 70px; background: url("../../../usaxelo-mshenebloba-master/consto/images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px;}
+	&:hover:after{content: ""; width: 30%; height: 70px; background: url("../images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px;}
 	&:hover:before{transform: scale(1.05); opacity: 1;}
 	figure{width: 100%; display: block; margin-bottom: 50px;
 		img{height: 70px;}}
@@ -493,7 +493,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 			&:hover figcaption{background: $color-main; color: $color-dark;}
 			img{width: 100%; display: block; filter: grayscale(1); @include transition;}
 			figcaption{width: 70%; position: absolute; left: 30px; bottom: 15px; padding: 30px; background: $color-dark; color: #fff; @include transition;
-				&:after{content: ""; width: 20%; height: 55px; background: url("../../../usaxelo-mshenebloba-master/consto/images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px;}
+				&:after{content: ""; width: 20%; height: 55px; background: url("../images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px;}
 				h5{ display: block; font-size: 30px; font-weight: 800; margin: 0;}
 				p{width: 100%; display: block; margin: 0; display: none;}}}}}
 
@@ -513,7 +513,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 			&:hover img{filter: grayscale(0);}
 			img{width: 100%; display: block; filter: grayscale(1); @include transition;}
 			figcaption{width: 70%; position: absolute; left: 30px; bottom: 15px; padding: 30px; background: $color-main; color: $color-dark; @include transition; opacity: 0;
-				&:after{content: ""; width: 20%; height: 55px; background: url("../../../usaxelo-mshenebloba-master/consto/images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px;}
+				&:after{content: ""; width: 20%; height: 55px; background: url("../images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px;}
 				h5{ display: block; font-size: 30px; font-weight: 800;}
 				p{width: 100%; display: block; margin: 0;}}}}
 	.swiper-pagination{ width: 100%; float: left; position: static;  margin-top: 20px;}}
@@ -533,7 +533,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 
 
 /* CALCULATOR */
-.calculator{background-color:$color-dark; background-image: url("../../../usaxelo-mshenebloba-master/consto/images/header-pattern.png"); background-position: center; background-size: cover; margin-top: 80px;
+.calculator{background-color:$color-dark; background-image: url("../images/header-pattern.png"); background-position: center; background-size: cover; margin-top: 80px;
 	.section-title{color: #fff;}
 	.bg-image{width: 40%; height: 100%; position: absolute; right: 0; top: 0; background-size: cover;}
 	.form{width: 100%; display: block; padding: 50px; background: #fff; color: $color-dark; position: relative;
@@ -555,7 +555,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 /* STEP BOX */
 .step-box{ width: 100%; display: block; position: relative; z-index: 1;
 	&:hover .image img{filter: grayscale(0);}
-	&:hover:after{content: ""; width: 40%; height: 65px; background: url("../../../usaxelo-mshenebloba-master/consto/images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px; z-index: 0;}
+	&:hover:after{content: ""; width: 40%; height: 65px; background: url("../images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px; z-index: 0;}
 	&:hover .content{bottom: 0;}
 	&:hover .content h6:before{width: 0;}
 	*{@include transition;}
@@ -666,7 +666,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 /* SALES TEAM */
 .sales-team{width: 100%; display: block; @include transition; position: relative;
 	&:hover {background: $color-main; transform: translateY(-20px); box-shadow: 0 30px 30px #eee; z-index: 1;}
-	&:hover:after{content: ""; width: 80px; height: 70px; background: url("../../../usaxelo-mshenebloba-master/consto/images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; left: -30px; top: 30px;}
+	&:hover:after{content: ""; width: 80px; height: 70px; background: url("../images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; left: -30px; top: 30px;}
 	&:hover .infos:after{content: ""; width: 0; height: 0; border-style: solid; border-width: 0 0 14px 14px; border-color: transparent transparent $color-dark transparent; position: absolute; right: 4px; bottom: 4px;}
 	&:hover figure img{mix-blend-mode: multiply;}
 	figure{width: 100%; display: block; margin: 0;
@@ -735,7 +735,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 /* RECENT NEWS */
 .recent-news{width: 100%; display: block; position: relative; @include transition;
 	&:hover{transform: translateY(-20px); box-shadow: 0 30px 30px #eee;}
-	&:hover:after{content: ""; width: 70%; height: 70px; background: url("../../../usaxelo-mshenebloba-master/consto/images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px; z-index: -1; opacity: 0.2;}
+	&:hover:after{content: ""; width: 70%; height: 70px; background: url("../images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px; z-index: -1; opacity: 0.2;}
 	&:hover figure img{ filter: none;}
 	&:hover .content h3 a{ background-size: 100% 100%;}
 	figure{width: 100%; max-height: 220px;  display: block; margin: 0; position: relative; overflow: hidden; background: $color-main;
@@ -758,7 +758,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 /* NEWS BOX */
 .news-box{width: 100%; display: block; position: relative; @include transition; margin-bottom: 100px;
 	&:last-child{margin-bottom: 0;}
-	&:after{content: ""; width: 70%; height: 70px; background: url("../../../usaxelo-mshenebloba-master/consto/images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px; z-index: -1; opacity: 0.2;}
+	&:after{content: ""; width: 70%; height: 70px; background: url("../images/pattern-dot.png"); background-size: 12px 12px;  position: absolute; right: -25px; bottom: -25px; z-index: -1; opacity: 0.2;}
 	&:hover .content h3 a{ background-size: 100% 100%;}
 	figure{width: 100%; display: block; margin: 0; position: relative; overflow: hidden; background: $color-main;
 		img{ width: 100%; max-width: inherit;  }}
@@ -808,7 +808,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 
 
 /* FOOTER BAR */
-.footer-bar{width: 100%; display: block; padding: 80px 0; position: relative; overflow: hidden; color: #fff; background-color:#232222; background-image: url("../../../usaxelo-mshenebloba-master/consto/images/header-pattern.png"); background-position: center; background-size: cover;
+.footer-bar{width: 100%; display: block; padding: 80px 0; position: relative; overflow: hidden; color: #fff; background-color:#232222; background-image: url("../images/header-pattern.png"); background-position: center; background-size: cover;
 	.logo{width: 100%; display: block; margin-bottom: 30px;
 		img{height: 50px;}}
 	h2{font-size: 60px; font-weight: 800; padding-right: 20%; margin-bottom: 50px;
