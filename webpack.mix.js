@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .vue(3)
     .postCss('resources/css/bootstrap.min.css', 'public/css')
     .postCss('resources/css/fancybox.min.css', 'public/css')
     .postCss('resources/css/lineicons.css', 'public/css')
@@ -21,4 +22,5 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/swiper.min.css', 'public/css')
     .postCss('resources/css/app.css', 'public/css', [
         //
-    ]);
+    ])
+    .version();
