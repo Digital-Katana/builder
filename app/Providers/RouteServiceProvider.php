@@ -33,8 +33,13 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::middleware('web')
+            Route::prefix('{locale}')
+                ->middleware('web')
+                ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
+
+            Route::fallback(fn() => abort(404))->middleware('localize');
+
         });
     }
 
