@@ -91,10 +91,10 @@
                             <li><a href="certificates.html">Certificates</a></li>
                         </ul>
                     </li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><NavLink :active="$page.component === 'services'" href="/services">Services</NavLink></li>
+                    <li><NavLink :active="$page.component === 'projects'" href="/projects">Projects</NavLink></li>
+                    <li><NavLink :active="$page.component === 'news'" href="/news">News</NavLink></li>
+                    <li><NavLink :active="$page.component === 'contact'" href="/contact">Contact</NavLink></li>
                 </ul>
             </div>
             <!-- end site-menu -->
