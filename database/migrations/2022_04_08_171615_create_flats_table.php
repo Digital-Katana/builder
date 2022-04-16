@@ -21,12 +21,12 @@ return new class extends Migration
             $table->integer('flatNumber');
             $table->unsignedBigInteger('typeID');
             $table->foreign('typeID')->references('id')->on('flat_types')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->integer('liveableSQM');
-            $table->integer('balconySQM');
+            $table->integer('balconySQM')->nullable();
             $table->integer('sumSQM');
-            $table->integer('sqPrice');
-            $table->integer('roomCount');
+            $table->integer('sqPrice')->nullable();
+            $table->integer('roomCount')->nullable();
             $table->enum('compassDirection',['NORTH','EAST','SOUTH','WEST']);
             $table->boolean('hasBalcony')->default(true);
             $table->boolean('isSold')->default(false);
