@@ -93,6 +93,8 @@
         </form>
     </div>
     <!-- end sales-specialist-form -->
+    <!-- JS FILES -->
+    <component :is="'script'" src="js/scripts.js"></component>
 </template>
 <script>
 export default {
