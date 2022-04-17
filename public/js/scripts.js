@@ -61,7 +61,7 @@
         } else {
           $('.page-transition').toggleClass("active");
           setTimeout(function () {
-            window.location = url;
+            //window.location = url;
           }, 1000);
         }
       }
