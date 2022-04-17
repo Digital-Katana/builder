@@ -46,15 +46,15 @@
                 <div class="swiper-container slider-main">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/slide01.jpg"></div>
+                            <div class="slide-image" data-background="images/Floors/P1B1F1.png"></div>
                         </div>
                         <!-- end swiper-slide -->
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/slide02.jpg"></div>
+                            <div class="slide-image" data-background="images/Floors/P1B1F2.png"></div>
                         </div>
                         <!-- end swiper-slide -->
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/slide03.jpg"></div>
+                            <div class="slide-image" data-background="images/Floors/P1B1F3.png"></div>
                         </div>
                         <!-- end swiper-slide -->
                     </div>
