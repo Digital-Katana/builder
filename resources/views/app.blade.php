@@ -56,6 +56,8 @@
     <script src="js/fancybox.min.js"></script>
     <script src="js/odometer.min.js"></script>
     <script src="js/isotope.min.js"></script>
+
+    <script src="js/scripts.js"></script>
 </body>
 
 

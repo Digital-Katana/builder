@@ -665,9 +665,6 @@
             <!-- end container -->
         </section>
         <!-- end content-section -->
-
-        <!-- JS FILES -->
-        <component :is="'script'" src="js/scripts.js"></component>
     </Layout>
 
 </template>
