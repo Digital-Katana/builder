@@ -47,18 +47,18 @@
                     <ul>
                         <li><a href="#">Consto</a><i class="lni lni-chevron-down-circle"></i>
                             <ul>
-                                <li><a href="about-company.html">About Company</a></li>
-                                <li><a href="core-values.html">Core Values</a></li>
-                                <li><a href="leadership.html">Leadership</a></li>
-                                <li><a href="our-history.html">Our History</a></li>
-                                <li><a href="offices.html">Offices</a></li>
-                                <li><a href="certificates.html">Certificates</a></li>
+                                <li><a href="/about-company">About Company</a></li>
+                                <li><a href="/core-values">Core Values</a></li>
+                                <li><a href="/leadership">Leadership</a></li>
+                                <li><a href="/our-history">Our History</a></li>
+                                <li><a href="/offices">Offices</a></li>
+                                <li><a href="/certificates">Certificates</a></li>
                             </ul>
                         </li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="news.html">News</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/projects">Projects</a></li>
+                        <li><a href="/news">News</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
                 <!-- end site-menu -->
@@ -83,12 +83,12 @@
                 <ul>
                     <li><a href="#">Consto</a>
                         <ul>
-                            <li><a href="about-company.html">About Company</a></li>
-                            <li><a href="core-values.html">Core Values</a></li>
-                            <li><a href="leadership.html">Leadership</a></li>
-                            <li><a href="our-history.html">Our History</a></li>
-                            <li><a href="offices.html">Offices</a></li>
-                            <li><a href="certificates.html">Certificates</a></li>
+                            <li><a href="/about-company">About Company</a></li>
+                            <li><a href="/core-values">Core Values</a></li>
+                            <li><a href="/leadership">Leadership</a></li>
+                            <li><a href="/our-history">Our History</a></li>
+                            <li><a href="/offices">Offices</a></li>
+                            <li><a href="/certificates">Certificates</a></li>
                         </ul>
                     </li>
                     <li><NavLink :active="$page.component === 'services'" href="/services">Services</NavLink></li>
