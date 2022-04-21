@@ -3,11 +3,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <figure class="logo"><img src="images/logo.png" alt="Image"></figure>
+                    <figure class="logo"><img src="/images/logo.png" alt="Image"></figure>
                     <h2>Live <b>better</b> and <b>beautiful</b></h2>
                     <a href="#" class="button">GET A CONSULTATION <i class="lni lni-arrow-right"></i></a>
                     <div class="sales-representive">
-                        <figure><img src="images/author01.jpg" alt="Image"></figure>
+                        <figure><img src="/images/author01.jpg" alt="Image"></figure>
                         Sales representative <b>+1 (850) 344 0 66 #20</b> free call !
                     </div>
                     <!-- end sales-representive -->
@@ -94,7 +94,7 @@
     </div>
     <!-- end sales-specialist-form -->
     <!-- JS FILES -->
-    <component :is="'script'" src="js/scripts.js"></component>
+    <component :is="'script'" src="/js/scripts.js"></component>
 </template>
 <script>
 export default {

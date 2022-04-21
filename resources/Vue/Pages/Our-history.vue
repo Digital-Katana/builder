@@ -37,19 +37,19 @@
                     <!-- end swiper-slide -->
                     <div class="swiper-slide">
                         <b>June 2011</b>
-                        <figure><img src="images/slide02.jpg" alt="Image"></figure>
+                        <figure><img src="/images/slide02.jpg" alt="Image"></figure>
                         <p>We know our customers are real people with specific goals and unique preferences.</p>
                     </div>
                     <!-- end swiper-slide -->
                     <div class="swiper-slide">
                         <b>September 2012</b>
-                        <figure><img src="images/slide03.jpg" alt="Image"></figure>
+                        <figure><img src="/images/slide03.jpg" alt="Image"></figure>
                         <p>We know our customers are real people with specific goals and unique preferences.</p>
                     </div>
                     <!-- end swiper-slide -->
                     <div class="swiper-slide">
                         <b>February 2013</b>
-                        <figure><img src="images/slide02.jpg" alt="Image"></figure>
+                        <figure><img src="/images/slide02.jpg" alt="Image"></figure>
                         <p>We know our customers are real people with specific goals and unique preferences.</p>
                     </div>
                     <!-- end swiper-slide -->

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +24,9 @@ Route::get('/services', function () {
 //    return view('Services');
 });
 
-Route::get('/projects', function () {
-    return inertia('Projects');
-//    return view('Projects');
-});
+Route::get('/projects', [ProjectsController::class, 'index']);
+
+Route::get('/projects/{projectID}', [ProjectsController::class, 'single']);
 
 Route::get('/news', function () {
     return inertia('News');
@@ -71,9 +71,4 @@ Route::get('/offices', function () {
 Route::get('/our-history', function () {
     return inertia('Our-history');
 //    return view('Our-history');
-});
-
-Route::get('/project-single', function () {
-    return inertia('Project-single');
-//    return view('Project-single');
 });

@@ -26,81 +26,13 @@
                     <!-- end col-12 -->
                     <div class="col-12">
                         <ul class="projects">
-                            <li class="one">
-                                <figure class="project-box"><a href="project-single.html"><img src="images/slide01.jpg"
-                                                                                               alt="Image"></a>
+                            <li v-for="(project, index) in projects" class="one">
+                                <figure class="project-box">
+                                    <Link :href="'projects/'+project.id">
+                                    <img :src="'/images/Projects/' + projectPictures[index]['imageName']" alt="Image">
+                                    </Link>
                                     <figcaption>
-                                        <h5>Quark Life Homes</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                            <li class="two">
-                                <figure class="project-box"><a href="project-single.html"><img src="images/slide02.jpg"
-                                                                                               alt="Image"></a>
-                                    <figcaption>
-                                        <h5>River Life Residence</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                            <li class="three">
-                                <figure class="project-box"><a href="project-single.html"><img src="images/slide03.jpg"
-                                                                                               alt="Image"></a>
-                                    <figcaption>
-                                        <h5>Orgue Shopping Mall</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                            <li class="one">
-                                <figure class="project-box"><a href="project-single.html"><img src="images/slide04.jpg"
-                                                                                               alt="Image"></a>
-                                    <figcaption>
-                                        <h5>Green Socks Villas</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                            <li class="two">
-                                <figure class="project-box"><a href="project-single.html"><img src="images/slide05.jpg"
-                                                                                               alt="Image"></a>
-                                    <figcaption>
-                                        <h5>Prensten Hudson's</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                            <li class="three">
-                                <figure class="project-box"><a href="project-single.html"><img src="images/slide06.jpg"
-                                                                                               alt="Image"></a>
-                                    <figcaption>
-                                        <h5>York Education Center</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                            <li class="one">
-                                <figure class="project-box"><a href="project-single.html"><img src="images/slide07.jpg"
-                                                                                               alt="Image"></a>
-                                    <figcaption>
-                                        <h5>Miamy Beach House</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                            <li class="two">
-                                <figure class="project-box"><a href="project-single.html"><img src="images/slide08.jpg"
-                                                                                               alt="Image"></a>
-                                    <figcaption>
-                                        <h5>All Life Resorts</h5>
+                                        <h5>{{ project.name }}</h5>
                                     </figcaption>
                                 </figure>
                                 <!-- end project-box -->
@@ -120,10 +52,24 @@
 
 <script>
 import Layout from "../Shared/Layout";
+import {Link} from "@inertiajs/inertia-vue3";
 
 export default {
     name: "Projects",
-    components: {Layout}
+    components: {
+        Layout,
+        Link
+    },
+    props: {
+        projects: {
+            type: Array,
+            default: []
+        },
+        projectPictures: {
+            type: Array,
+            default: []
+        },
+    }
 }
 </script>
 

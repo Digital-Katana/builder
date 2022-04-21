@@ -70,7 +70,7 @@
     <!-- end side-widget -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Image"></a></div>
+            <div class="logo"><a href="index.html"><img src="/images/logo.png" alt="Image"></a></div>
             <!-- end logo -->
             <div class="languages">
                 <ul>

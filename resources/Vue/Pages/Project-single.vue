@@ -2,11 +2,13 @@
     <layout>
         <header class="page-header">
             <div class="container">
-                <h1>PROJECTS</h1>
+                <h1>{{ project.name }}</h1>
                 <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li>PROJECTS</li>
+                    <li>
+                        <Link href="/projects">HOME</Link>
+                    </li>
+                    <li>{{ project.name }}</li>
                 </ul>
             </div>
             <!-- end container -->
@@ -15,24 +17,13 @@
         <section class="content-section no-bottom-spacing">
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <figure class="project-box"><a href="#"><img src="images/slide02.jpg" alt="Image"></a>
+                    <div v-for="(image, index) in projectsPictures" class="swiper-slide">
+                        <figure class="project-box"><a href="#"><img :src="'/images/Projects/'+image['imageName']"
+                                                                     alt="Image"></a>
 
                         </figure>
                     </div>
-                    <!-- end swiper-slide -->
-                    <div class="swiper-slide">
-                        <figure class="project-box"><a href="#"><img src="images/slide03.jpg" alt="Image"></a>
 
-                        </figure>
-                    </div>
-                    <!-- end swiper-slide -->
-                    <div class="swiper-slide">
-                        <figure class="project-box"><a href="#"><img src="images/slide01.jpg" alt="Image"></a>
-
-                        </figure>
-                    </div>
-                    <!-- end swiper-slide -->
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
@@ -45,11 +36,15 @@
                 <div class="row align-items-center">
                     <div class="col-lg-5">
                         <h3><strong>Life Science Center</strong></h3>
-                        <p>At <u>Consto Construction</u> our team specializing in building repurposing, or adaptive reuse,
-                            respects the history of a building and believes in letting a structure’s story help determine its
+                        <p>At <u>Consto Construction</u> our team specializing in building repurposing, or adaptive
+                            reuse,
+                            respects the history of a building and believes in letting a structure’s story help
+                            determine its
                             future. </p>
-                        <p>From vacant historic warehouses to <strong>luxury boutique</strong> hotels and event venues, when it
-                            comes to the talent of this group the possibilities are endless. And they aren’t just focused on the
+                        <p>From vacant historic warehouses to <strong>luxury boutique</strong> hotels and event venues,
+                            when it
+                            comes to the talent of this group the possibilities are endless. And they aren’t just
+                            focused on the
                             end result, they are focused on doing what is right every single step of the way.</p>
                     </div>
                     <!-- end col-5 -->
@@ -110,18 +105,26 @@
                         <div class="accordion" id="accordion" role="tablist">
                             <div class="card">
                                 <div class="card-header" role="tab" id="headingOne"><a data-toggle="collapse"
-                                                                                       href="#collapseOne" aria-expanded="true"
-                                                                                       aria-controls="collapseOne">Dedication to
+                                                                                       href="#collapseOne"
+                                                                                       aria-expanded="true"
+                                                                                       aria-controls="collapseOne">Dedication
+                                    to
                                     client satisfaction <i class="lni lni-arrow-right"></i></a></div>
                                 <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne"
                                      data-parent="#accordion">
-                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                                        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil
-                                        anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                        accusamus
+                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                        dolor
+                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                        sunt
+                                        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                                        et. Nihil
+                                        anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                        ea
                                         proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                                        them
                                         accusamus labore sustainable VHS.
                                     </div>
                                     <!-- end card-body -->
@@ -130,20 +133,29 @@
                             </div>
                             <!-- end card -->
                             <div class="card">
-                                <div class="card-header" role="tab" id="headingTwo"><a class="collapsed" data-toggle="collapse"
-                                                                                       href="#collapseTwo" aria-expanded="false"
-                                                                                       aria-controls="collapseTwo"> Where can I
+                                <div class="card-header" role="tab" id="headingTwo"><a class="collapsed"
+                                                                                       data-toggle="collapse"
+                                                                                       href="#collapseTwo"
+                                                                                       aria-expanded="false"
+                                                                                       aria-controls="collapseTwo">
+                                    Where can I
                                     find credit and bond ratings for a particular company? <i
-                                        class="lni lni-arrow-right"></i></a></div>
+                                    class="lni lni-arrow-right"></i></a></div>
                                 <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo"
                                      data-parent="#accordion">
-                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                                        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil
-                                        anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                        accusamus
+                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                        dolor
+                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                        sunt
+                                        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                                        et. Nihil
+                                        anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                        ea
                                         proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                                        them
                                         accusamus labore sustainable VHS.
                                     </div>
                                     <!-- end card-body -->
@@ -156,17 +168,24 @@
                                                                                          data-toggle="collapse"
                                                                                          href="#collapseThree"
                                                                                          aria-expanded="false"
-                                                                                         aria-controls="collapseThree"> Where
+                                                                                         aria-controls="collapseThree">
+                                    Where
                                     can I get access to Custom properties? <i class="lni lni-arrow-right"></i></a></div>
                                 <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree"
                                      data-parent="#accordion">
-                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                                        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil
-                                        anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                        accusamus
+                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                        dolor
+                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                        sunt
+                                        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                                        et. Nihil
+                                        anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                        ea
                                         proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                                        them
                                         accusamus labore sustainable VHS.
                                     </div>
                                     <!-- end card-body -->
@@ -175,21 +194,30 @@
                             </div>
                             <!-- end card -->
                             <div class="card">
-                                <div class="card-header" role="tab" id="headingFour"><a class="collapsed" data-toggle="collapse"
+                                <div class="card-header" role="tab" id="headingFour"><a class="collapsed"
+                                                                                        data-toggle="collapse"
                                                                                         href="#collapseFour"
                                                                                         aria-expanded="false"
-                                                                                        aria-controls="collapseFour"> Where can
-                                    I find the Wall Street Journal - today's and historical <i class="lni lni-arrow-right"></i></a>
+                                                                                        aria-controls="collapseFour">
+                                    Where can
+                                    I find the Wall Street Journal - today's and historical <i
+                                    class="lni lni-arrow-right"></i></a>
                                 </div>
                                 <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour"
                                      data-parent="#accordion">
-                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
-                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                                        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil
-                                        anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                                    <div class="card-body"> Anim pariatur cliche reprehenderit, enim eiusmod high life
+                                        accusamus
+                                        terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard
+                                        dolor
+                                        brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
+                                        sunt
+                                        aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch
+                                        et. Nihil
+                                        anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente
+                                        ea
                                         proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of
+                                        them
                                         accusamus labore sustainable VHS.
                                     </div>
                                     <!-- end card-body -->
@@ -204,9 +232,12 @@
                     <div class="col-lg-4">
                         <div class="info-box-dark">
                             <h6>INFO BOX</h6>
-                            <p>Anim pariatur cliche <strong>reprehenderit</strong>, enim eiusmod high life accusamus terry
-                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. </p>
-                            <p>Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on
+                            <p>Anim pariatur cliche <strong>reprehenderit</strong>, enim eiusmod high life accusamus
+                                terry
+                                richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                            </p>
+                            <p>Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a
+                                bird on
                                 it squid single-origin coffee nulla <u>assumenda</u> shoreditch et. </p>
                         </div>
                         <!-- end info-box-dark -->
@@ -224,8 +255,10 @@
                     <div class="col-lg-8">
                         <div class="cta-box-yellow">
                             <h4>The first thing we build is relationships</h4>
-                            <p>To they four in love. Settling you has separate supplied bed. Concluded resembled suspected his
-                                resources curiosity joy. Led all cottage met enabled attempt through talking delight. Dare he
+                            <p>To they four in love. Settling you has separate supplied bed. Concluded resembled
+                                suspected his
+                                resources curiosity joy. Led all cottage met enabled attempt through talking delight.
+                                Dare he
                                 feet my tell busy. Considered imprudence of he friendship boisterous.</p>
                             <a href="#" class="button">GET AN ESTIMATE</a>
                         </div>
@@ -243,10 +276,24 @@
 
 <script>
 import Layout from "../Shared/Layout";
+import {Link} from "@inertiajs/inertia-vue3";
 
 export default {
     name: "Project-single",
-    components: {Layout}
+    components: {
+        Layout,
+        Link
+    },
+    props: {
+        project: {
+            type: Array,
+            default: {name: 'null'}
+        },
+        projectsPictures: {
+            type: Array,
+            default: []
+        },
+    }
 }
 </script>
 
