@@ -60,7 +60,7 @@
         <!-- end logo -->
         <div class="hide-mobile">
             <p>Extremity direction existence as dashwoods do up. Securing <u>marianne led</u> welcomed offended but offering six raptures. </p>
-            <figure class="gallery"><img src="images/slide02.jpg" alt="Image"><img src="images/slide03.jpg" alt="Image"></figure>
+            <figure class="gallery"><img src="/images/slide02.jpg" alt="Image"><img src="images/slide03.jpg" alt="Image"></figure>
             <h6 class="widget-title">ADDRESS</h6>
             <address class="address">
                 <p>228 Cardigan Road, Leeds<br>
@@ -196,15 +196,15 @@
         <div class="swiper-container slider-main">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <div class="slide-image" data-background="images/slide01.jpg"></div>
+                    <div class="slide-image" data-background="/images/slide01.jpg"></div>
                 </div>
                 <!-- end swiper-slide -->
                 <div class="swiper-slide">
-                    <div class="slide-image" data-background="images/slide02.jpg"></div>
+                    <div class="slide-image" data-background="/images/slide02.jpg"></div>
                 </div>
                 <!-- end swiper-slide -->
                 <div class="swiper-slide">
-                    <div class="slide-image" data-background="images/slide03.jpg"></div>
+                    <div class="slide-image" data-background="/images/slide03.jpg"></div>
                 </div>
                 <!-- end swiper-slide -->
             </div>
@@ -349,7 +349,7 @@
     <div class="swiper-container project-slider">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <figure class="project-box"> <a href="#"><img src="images/slide02.jpg" alt="Image"></a>
+                <figure class="project-box"> <a href="#"><img src="/images/slide02.jpg" alt="Image"></a>
                     <figcaption>
                         <h5>Life Science Center</h5>
                         <p>The building opened in 2020 and includes more than 120+ flats</p>
@@ -742,7 +742,7 @@
                 <div class="row inner">
                     <div class="col-md-6">
                         <div class="recent-news">
-                            <figure> <img src="images/slide02.jpg" alt="Image"> </figure>
+                            <figure> <img src="/images/slide02.jpg" alt="Image"> </figure>
                             <div class="content"> <small>29 February, 2020</small>
                                 <h3><a href="#">Challenge I participated in as a guest on all font</a></h3>
                                 <div class="author"> <img src="images/author01.jpg" alt="Image"> <span>by <b>Consto Editor</b></span> </div>
@@ -780,7 +780,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <figure class="logo"> <img src="images/logo.png" alt="Image"> </figure>
+                <figure class="logo"> <img src="/images/logo.png" alt="Image"> </figure>
                 <h2>Live <b>better</b> and <b>beautiful</b></h2>
                 <a href="#" class="button">GET A CONSULTATION <i class="lni lni-arrow-right"></i></a>
                 <div class="sales-representive">

@@ -14,7 +14,7 @@
     <!-- end search-box -->
     <aside class="side-widget">
         <div class="inner">
-            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Image"></a></div>
+            <div class="logo"><a href="index.html"><img src="/images/logo.png" alt="Image"></a></div>
             <!-- end logo -->
             <div class="hide-mobile">
                 <p>Extremity direction existence as dashwoods do up. Securing <u>marianne led</u> welcomed offended but

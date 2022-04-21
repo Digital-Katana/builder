@@ -33,7 +33,7 @@
 
                         <div class="news-box">
                             <figure>
-                                <img src="images/slide02.jpg" alt="Image">
+                                <img src="/images/slide02.jpg" alt="Image">
                             </figure>
                             <div class="content"><small>29 February, 2020</small>
                                 <h3><a href="news-single.html">Result of a challenge I participated in as a guest on The
