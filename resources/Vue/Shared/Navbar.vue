@@ -74,14 +74,19 @@
             <!-- end logo -->
             <div class="languages">
                 <ul>
-                    <li><a href="#">en</a></li>
-                    <li><a href="#">ru</a></li>
+                    <li>
+                        <a href="#"  >
+                     a
+                        </a>
+                    </li>
+                    <li><a href="#" > ge </a></li>
                 </ul>
             </div>
             <!-- end languages -->
             <div class="site-menu">
                 <ul>
-                    <li><a href="#">Consto</a>
+                    <li><a href="#">
+                    </a>
                         <ul>
                             <li><a href="/about-company">About Company</a></li>
                             <li><a href="/core-values">Core Values</a></li>
@@ -91,7 +96,8 @@
                             <li><a href="/certificates">Certificates</a></li>
                         </ul>
                     </li>
-                    <li><NavLink :active="$page.component === 'services'" href="/services">Services</NavLink></li>
+
+                    <li><NavLink :active="$page.component === 'services'" href="/services" >{{$t("Services")}}</NavLink></li>
                     <li><NavLink :active="$page.component === 'projects'" href="/projects">Projects</NavLink></li>
                     <li><NavLink :active="$page.component === 'news'" href="/news">News</NavLink></li>
                     <li><NavLink :active="$page.component === 'contact'" href="/contact">Contact</NavLink></li>
