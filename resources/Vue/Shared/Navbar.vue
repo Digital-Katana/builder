@@ -96,7 +96,11 @@
                             <li><a href="/certificates">Certificates</a></li>
                         </ul>
                     </li>
-
+                    <select v-model="$i18n.locale" @change="changeLanguage">
+                        <option value="en">English</option>
+                        <option value="hn">Hindi</option>
+                        <option value="fr">French</option>
+                    </select>
                     <li><NavLink :active="$page.component === 'services'" href="/services" >{{$t("Services")}}</NavLink></li>
                     <li><NavLink :active="$page.component === 'projects'" href="/projects">Projects</NavLink></li>
                     <li><NavLink :active="$page.component === 'news'" href="/news">News</NavLink></li>
@@ -129,5 +133,10 @@ export default {
         NavLink,
         Link,
     },
+    methods:{
+        changeLanguage(obj){
+            localStorage.setItem('language',obj.target.value)
+        }
+    }
 }
 </script>
