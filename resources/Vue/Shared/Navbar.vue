@@ -96,7 +96,8 @@
                             <li><a href="/certificates">Certificates</a></li>
                         </ul>
                     </li>
-                    <select v-model="$i18n.locale" @change="changeLanguage">
+<!--                    <select v-model="$i18n.locale" @change="changeLanguage">-->
+                    <select v-model="currentLanguage" @change="changeLanguage">
                         <option value="en">English</option>
                         <option value="hn">Hindi</option>
                         <option value="fr">French</option>
@@ -126,12 +127,19 @@
 <script>
 import {Link} from '@inertiajs/inertia-vue3';
 import NavLink from "./NavLink";
+import { getActiveLanguage } from 'laravel-vue-i18n';
 
 export default {
     name: 'Navbar',
     components: {
         NavLink,
         Link,
+    },
+    computed:{
+      currentLanguage(){
+          //if lang logic here
+          return getActiveLanguage()
+      }
     },
     methods:{
         changeLanguage(obj){
