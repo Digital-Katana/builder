@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BuildingsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,6 +27,12 @@ Route::get('/services', function () {
 Route::get('/projects', [ProjectsController::class, 'index']);
 
 Route::get('/projects/{projectID}', [ProjectsController::class, 'single']);
+
+Route::get('/projects/{projectID}/buildings', [BuildingsController::class, 'index']);
+
+Route::get('/projects/{projectID}/buildings/{buildingID}', [BuildingsController::class, 'single']);
+
+
 
 Route::get('/news', function () {
     return inertia('News');
