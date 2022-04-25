@@ -14,6 +14,7 @@ require('laravel-vue-i18n/mix');
 
 mix.js('resources/js/app.js', 'public/js')
     .vue(3)
+    .i18n()
     .postCss('resources/css/bootstrap.min.css', 'public/css')
     .postCss('resources/css/fancybox.min.css', 'public/css')
     .postCss('resources/css/lineicons.css', 'public/css')
@@ -25,5 +26,3 @@ mix.js('resources/js/app.js', 'public/js')
         //
     ])
     .version();
-
-mix.i18n();

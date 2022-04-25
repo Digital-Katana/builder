@@ -75,11 +75,11 @@
             <div class="languages">
                 <ul>
                     <li>
-                        <a href="#"  >
-                     a
-                        </a>
+                        <a style="cursor: pointer;" @click="switchLang('ge')">ge</a>
                     </li>
-                    <li><a href="#" > ge </a></li>
+                    <li>
+                        <a style="cursor: pointer;" @click="switchLang('en')">en</a>
+                    </li>
                 </ul>
             </div>
             <!-- end languages -->
@@ -96,16 +96,19 @@
                             <li><a href="/certificates">Certificates</a></li>
                         </ul>
                     </li>
-<!--                    <select v-model="$i18n.locale" @change="changeLanguage">-->
-                    <select v-model="currentLanguage" @change="changeLanguage">
-                        <option value="en">English</option>
-                        <option value="hn">Hindi</option>
-                        <option value="fr">French</option>
-                    </select>
-                    <li><NavLink :active="$page.component === 'services'" href="/services" >{{$t("Services")}}</NavLink></li>
-                    <li><NavLink :active="$page.component === 'projects'" href="/projects">Projects</NavLink></li>
-                    <li><NavLink :active="$page.component === 'news'" href="/news">News</NavLink></li>
-                    <li><NavLink :active="$page.component === 'contact'" href="/contact">Contact</NavLink></li>
+                    <li>
+                        <NavLink :active="$page.component === 'services'" href="/services">{{ $t("Services") }}
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink :active="$page.component === 'projects'" href="/projects">Projects</NavLink>
+                    </li>
+                    <li>
+                        <NavLink :active="$page.component === 'news'" href="/news">News</NavLink>
+                    </li>
+                    <li>
+                        <NavLink :active="$page.component === 'contact'" href="/contact">Contact</NavLink>
+                    </li>
                 </ul>
             </div>
             <!-- end site-menu -->
@@ -127,24 +130,22 @@
 <script>
 import {Link} from '@inertiajs/inertia-vue3';
 import NavLink from "./NavLink";
-import { getActiveLanguage } from 'laravel-vue-i18n';
+import { loadLanguageAsync,getActiveLanguage } from 'laravel-vue-i18n';
 
 export default {
     name: 'Navbar',
     components: {
         NavLink,
-        Link,
+        Link
     },
-    computed:{
-      currentLanguage(){
-          //if lang logic here
-          return getActiveLanguage()
-      }
-    },
-    methods:{
-        changeLanguage(obj){
-            localStorage.setItem('language',obj.target.value)
+    computed: {
+        currentLanguage(){
+            //if lang logic here
+            return getActiveLanguage()
         }
+    },
+    methods: {
+        switchLang (lang) { loadLanguageAsync(lang) },
     }
 }
 </script>
