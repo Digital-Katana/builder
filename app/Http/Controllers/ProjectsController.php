@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Building;
+use App\Models\Buildings;
 use App\Models\BuildingPictures;
 use App\Models\Projects;
 use App\Models\ProjectsPictures;
@@ -27,7 +27,7 @@ class ProjectsController extends Controller
     {
         $project = Projects::where('id',$projectID)->first();
         $project->pictures = ProjectsPictures::where('projectID', $projectID)->get();
-        $project->buildings = Building::where('projectID',$projectID)->get();
+        $project->buildings = Buildings::where('projectID',$projectID)->get();
 
         foreach($project->buildings as &$building) {
             $building->pictures = BuildingPictures::where('buildingID', $building->id)->get();

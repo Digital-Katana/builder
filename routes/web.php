@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BuildingsController;
+use App\Http\Controllers\FloorsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,8 @@ Route::get('/projects/{projectID}', [ProjectsController::class, 'single']);
 Route::get('/projects/{projectID}/buildings', [BuildingsController::class, 'index']);
 
 Route::get('/projects/{projectID}/buildings/{buildingID}', [BuildingsController::class, 'single']);
+
+Route::get('/projects/{projectID}/buildings/{buildingID}/floors/{floorID}', [FloorsController::class, 'single']);
 
 
 

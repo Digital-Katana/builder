@@ -19,7 +19,7 @@ class FloorPictures extends Model
 
     public function building(): BelongsTo
     {
-        return $this->belongsTo(Floor::class,'floorID');
+        return $this->belongsTo(Floors::class,'floorID');
     }
 
 }

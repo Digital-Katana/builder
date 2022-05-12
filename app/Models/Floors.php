@@ -9,11 +9,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use phpDocumentor\Reflection\Project;
 
-class Building extends Model
+class Floors extends Model
 {
     use HasFactory;
 
-    protected $table = 'buildings';
+    protected $table = 'floors';
     protected $primaryKey = 'id';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -21,12 +21,12 @@ class Building extends Model
 
     public function project(): BelongsTo
     {
-        return $this->belongsTo(Project::class,'projectID');
+        return $this->belongsTo(Buildings::class,'buildingID');
     }
 
     public function pictures(): HasMany
     {
-        return $this->hasMany(BuildingPictures::class);
+        return $this->hasMany(FloorPictures::class);
     }
 
 }
