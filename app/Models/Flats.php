@@ -19,7 +19,7 @@ class Flats extends Model
     const UPDATED_AT = 'updated_at';
 
 
-    public function project(): BelongsTo
+    public function floor(): BelongsTo
     {
         return $this->belongsTo(Floors::class,'FloorID');
     }

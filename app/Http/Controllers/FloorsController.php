@@ -36,7 +36,21 @@ class FloorsController extends Controller
         $floor->flats = Flats::where('floorID', $floorID)->get();
 
         foreach($floor->flats as &$flat) {
+            $price = 0;
             $flat->pictures = FlatPictures::where('flatID', $flat->id)->get();
+            if ($floor->project->sqPrice) {
+                $price = $floor->project->sqPrice;
+            }
+            if ($floor->building->sqPrice) {
+                $price = $floor->building->sqPrice;
+            }
+            if ($floor->sqPrice) {
+                $price = $floor->sqPrice;
+            }
+            if ($flat->sqPrice) {
+                $price = $flat->sqPrice;
+            }
+            $flat->sqPrice = $price;
         }
 
         return Inertia::render('Floor-single',[

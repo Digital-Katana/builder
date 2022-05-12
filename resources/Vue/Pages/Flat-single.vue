@@ -2,24 +2,29 @@
     <layout>
         <header class="page-header">
             <div class="container">
-                <h1>Floor: {{ floor.floorNumber }}</h1>
+                <h1>Flat: {{ flat.flatNumber }}</h1>
                 <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
                 <ul>
                     <li>
                         <Link href="/">HOME</Link>
                     </li>
                     <li>
-                        <Link :href="'/projects/' + floor.project.id">
-                            {{ floor.project.name }}
+                        <Link :href="'/projects/' + flat.project.id">
+                            {{ flat.project.name }}
                         </Link>
                     </li>
                     <li>
-                        <Link :href="'/projects/' + floor.project.id + '/buildings/' + floor.building.id">
-                            {{ floor.building.name }}
+                        <Link :href="'/projects/' + flat.project.id + '/buildings/' + flat.building.id">
+                            {{ flat.building.name }}
                         </Link>
                     </li>
                     <li>
-                        Floor: {{ floor.floorNumber }}
+                        <Link :href="'/projects/' + flat.project.id + '/buildings/' + flat.building.id+ '/buildings/' + flat.floor.floorNumber">
+                            Floor: {{ flat.floor.floorNumber }}
+                        </Link>
+                    </li>
+                    <li>
+                        Flat: {{ flat.flatNumber }}
                     </li>
                 </ul>
             </div>
@@ -29,10 +34,10 @@
         <section class="content-section no-bottom-spacing">
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div v-for="(image, index) in floor.pictures" class="swiper-slide">
+                    <div v-for="(image, index) in flat.pictures" class="swiper-slide">
                         <figure class="project-box">
                             <Link href="#">
-                                <img :src="'/images/Floors/'+image['imageName']" alt="Image">
+                                <img :src="'/images/Flats/'+image['imageName']" alt="Image">
                             </Link>
                         </figure>
                     </div>
@@ -43,49 +48,6 @@
             </div>
             <!-- end project-slider -->
         </section>
-
-
-        <section class="content-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="section-title">
-                            <h6><h2>Flats</h2></h6>
-                        </div>
-                        <!-- end section-title -->
-                    </div>
-                    <!-- end col-12 -->
-                    <div class="col-lg-12">
-                        <div class="row inner">
-                            <Link :href="'/projects/' + floor.project.id + '/buildings/'+ floor.building.id + '/floors/'+ floor.id + '/flats/' + flat.id " v-for="(flat, index) in floor.flats" class="col-md-3 pb-5">
-                                <div class="recent-news border">
-                                    <figure>
-                                        <img v-if="flat.pictures.length > 0" :src="'/images/Floors/' + flat.pictures[0]['imageName']" alt="Image">
-                                    </figure>
-                                    <div class="content">
-<!--                                        <small>29 February, 2020</small>-->
-                                        <h3>
-                                            <h5># {{ flat.flatNumber }}</h5>
-                                            <h5>{{ flat.sumSQM }} M2</h5>
-                                            <h5>Price: {{ flat.sqPrice }} $</h5>
-                                        </h3>
-                                    </div>
-                                    <!-- end content -->
-                                </div>
-                                <!-- end recent-news -->
-                            </Link>
-                            <!-- end col-4 -->
-                        </div>
-                        <!-- end row inner -->
-                    </div>
-                    <!-- end col-12 -->
-                </div>
-                <!-- end row -->
-            </div>
-            <!-- end container -->
-        </section>
-        <!-- end content-section -->
-
         <!-- end content-section -->
         <section class="content-section">
             <div class="container">
@@ -336,13 +298,13 @@ import Layout from "../Shared/Layout";
 import {Link} from "@inertiajs/inertia-vue3";
 
 export default {
-    name: "Floor-single",
+    name: "Flat-single",
     components: {
         Layout,
         Link
     },
     props: {
-        floor: {
+        flat: {
             type: Object,
             default: {}
         },

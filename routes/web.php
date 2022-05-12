@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BuildingsController;
+use App\Http\Controllers\FlatsController;
 use App\Http\Controllers\ProjectsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FloorsController;
@@ -35,6 +36,7 @@ Route::get('/projects/{projectID}/buildings/{buildingID}', [BuildingsController:
 
 Route::get('/projects/{projectID}/buildings/{buildingID}/floors/{floorID}', [FloorsController::class, 'single']);
 
+Route::get('/projects/{projectID}/buildings/{buildingID}/floors/{floorID}/flats/{flatID}', [FlatsController::class, 'single']);
 
 
 Route::get('/news', function () {
