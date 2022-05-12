@@ -17,7 +17,7 @@
         <section class="content-section no-bottom-spacing">
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div v-for="(image, index) in projectsPictures" class="swiper-slide">
+                    <div v-for="(image, index) in project.pictures" class="swiper-slide">
                         <figure class="project-box"><a href="#"><img :src="'/images/Projects/'+image['imageName']"
                                                                      alt="Image"></a>
 
@@ -30,6 +30,36 @@
             </div>
             <!-- end project-slider -->
         </section>
+
+        <section class="content-section ">
+            <div class="container">
+                <div class="row">
+                    <!-- end col-12 -->
+                    <div class="col-12">
+                        <ul class="projects">
+                            <li v-for="(building, index) in project.buildings" class="one">
+                                <figure class="project-box">
+                                    <Link :href="'/projects/' + project.id + '/buildings/'+ building.id">
+                                        <img v-if="building.pictures.length > 0"
+                                            :src="'/images/Buildings/' + building.pictures[0]['imageName']"
+                                            alt="Image">
+                                    </Link>
+                                    <figcaption>
+                                        <h5>{{ project.name }}</h5>
+                                    </figcaption>
+                                </figure>
+                                <!-- end project-box -->
+                            </li>
+                            <!-- end li -->
+                        </ul>
+                    </div>
+                    <!-- end col-12 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+
         <!-- end content-section -->
         <section class="content-section">
             <div class="container">
@@ -286,12 +316,8 @@ export default {
     },
     props: {
         project: {
-            type: Array,
-            default: {name: 'null'}
-        },
-        projectsPictures: {
-            type: Array,
-            default: []
+            type: Object,
+            default: {}
         },
     }
 }

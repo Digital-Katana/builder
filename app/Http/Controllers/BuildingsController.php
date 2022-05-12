@@ -25,7 +25,7 @@ class BuildingsController extends Controller
     public function single($buildingID,$projectID): \Inertia\Response
     {
         $buildings = Building::where('id',$buildingID)->first();
-        $buildingPictures = BuildingPictures::where('buildingID', 1)->get();
+        $buildingPictures = BuildingPictures::where('buildingID', $buildingID)->get();
         $project = Projects::where('id',$projectID)->first();
         return Inertia::render('Building-single',[
             'buildings' => $buildings,

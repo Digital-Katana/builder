@@ -5,7 +5,7 @@
                 <h1>PROJECTS</h1>
                 <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
                 <ul>
-                    <li><a href="#">HOME</a></li>
+                    <li><Link href="/">HOME</Link></li>
                     <li>PROJECTS</li>
                 </ul>
             </div>

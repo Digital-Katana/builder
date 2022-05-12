@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Building;
+use App\Models\BuildingPictures;
 use App\Models\Projects;
 use App\Models\ProjectsPictures;
 use Illuminate\Http\Request;
@@ -23,11 +25,15 @@ class ProjectsController extends Controller
     public function single($projectID): \Inertia\Response
     {
         $project = Projects::where('id',$projectID)->first();
-        $ProjectsPictures = ProjectsPictures::where('projectID', 1)->get();
+        $project->pictures = ProjectsPictures::where('projectID', $projectID)->get();
+        $project->buildings = Building::where('projectID',$projectID)->get();
+
+        foreach($project->buildings as &$building) {
+            $building->pictures = BuildingPictures::where('buildingID', $building->id)->get();
+        }
 
         return Inertia::render('Project-single',[
             'project' => $project,
-            'projectsPictures' => $ProjectsPictures
         ]);
     }
 }
