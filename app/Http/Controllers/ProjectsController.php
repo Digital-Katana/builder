@@ -8,10 +8,11 @@ use App\Models\Projects;
 use App\Models\ProjectsPictures;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 
 class ProjectsController extends Controller
 {
-    public function index(): \Inertia\Response
+    public function index(): Response
     {
         $projects = Projects::all();
         $ProjectsPictures = ProjectsPictures::all();
@@ -22,7 +23,7 @@ class ProjectsController extends Controller
         ]);
     }
 
-    public function single($projectID): \Inertia\Response
+    public function single($projectID): Response
     {
         $project = Projects::where('id',$projectID)->first();
         $project->pictures = ProjectsPictures::where('projectID', $projectID)->get();

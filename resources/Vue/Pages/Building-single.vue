@@ -2,19 +2,19 @@
     <layout>
         <header class="page-header">
             <div class="container">
-                <h1>{{ buildings.name }}</h1>
+                <h1>{{ building.name }}</h1>
                 <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
                 <ul>
                     <li>
                         <Link href="/">HOME</Link>
                     </li>
                     <li>
-                        <Link href="/projects">
-                            {{ project.name }}
+                        <Link :href="'/projects/' + building.project.id">
+                            {{ building.project.name }}
                         </Link>
                     </li>
                     <li>
-                            {{ buildings.name }}
+                            {{ building.name }}
                     </li>
                 </ul>
             </div>
@@ -24,10 +24,11 @@
         <section class="content-section no-bottom-spacing">
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div v-for="(image, index) in buildingPictures" class="swiper-slide">
-                        <figure class="project-box"><a href="#"><img :src="'/images/Buildings/'+image['imageName']"
-                                                                     alt="Image"></a>
-
+                    <div v-for="(image, index) in building.pictures" class="swiper-slide">
+                        <figure class="project-box">
+                            <Link href="#">
+                                <img :src="'/images/Buildings/'+image['imageName']" alt="Image">
+                            </Link>
                         </figure>
                     </div>
 
@@ -37,6 +38,37 @@
             </div>
             <!-- end project-slider -->
         </section>
+
+        <section class="content-section ">
+            <div class="container">
+                <div class="row">
+                    <!-- end col-12 -->
+                    <div class="col-12">
+                        <ul class="projects">
+                            <li v-for="(floor, index) in building.floors" class="one">
+                                <figure class="project-box">
+                                    <Link :href="'/projects/' + building.project.id + '/buildings/'+ building.id + '/floors/'+ floor.id">
+                                        <img v-if="floor.pictures.length > 0"
+                                             :src="'/images/Floors/' + floor.pictures[0]['imageName']"
+                                             alt="Image">
+                                    </Link>
+                                    <figcaption>
+                                        <h5>Floor: {{ floor.floorNumber }}</h5>
+                                        <h5>Flats: {{ floor.flatCount }}</h5>
+                                    </figcaption>
+                                </figure>
+                                <!-- end project-box -->
+                            </li>
+                            <!-- end li -->
+                        </ul>
+                    </div>
+                    <!-- end col-12 -->
+                </div>
+                <!-- end row -->
+            </div>
+            <!-- end container -->
+        </section>
+
         <!-- end content-section -->
         <section class="content-section">
             <div class="container">
@@ -83,6 +115,7 @@
                                     <td>2020</td>
                                 </tr>
                                 <tr>
+                                    <td>SIZE</td>
                                     <td>SIZE</td>
                                     <td>158.000 sq feet</td>
                                 </tr>
@@ -292,17 +325,9 @@ export default {
         Link
     },
     props: {
-        buildings: {
-            type: Array,
-            default: {name: 'null'}
-        },
-        buildingPictures: {
-            type: Array,
-            default: []
-        },
-        project: {
-            type: Array,
-            default: {name: 'null'}
+        building: {
+            type: Object,
+            default: {}
         },
     }
 }

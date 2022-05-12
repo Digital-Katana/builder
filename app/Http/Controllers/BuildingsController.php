@@ -4,14 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Building;
 use App\Models\BuildingPictures;
+use App\Models\Floor;
+use App\Models\FloorPictures;
 use App\Models\Projects;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Inertia\Response;
 use phpDocumentor\Reflection\Project;
 
 class BuildingsController extends Controller
 {
-    public function index(): \Inertia\Response
+    public function index(): Response
     {
         $buildings = Building::all();
         $buildingPictures = BuildingPictures::all();
@@ -22,15 +25,19 @@ class BuildingsController extends Controller
         ]);
     }
 
-    public function single($buildingID,$projectID): \Inertia\Response
+    public function single($buildingID,$projectID): Response
     {
-        $buildings = Building::where('id',$buildingID)->first();
-        $buildingPictures = BuildingPictures::where('buildingID', $buildingID)->get();
-        $project = Projects::where('id',$projectID)->first();
+        $building = Building::where('id',$buildingID)->first();
+        $building->project = Projects::where('id',$building->projectID)->first();
+        $building->pictures = BuildingPictures::where('buildingID', $building->id)->get();
+        $building->floors = Floor::where('buildingID', $building->id)->get();
+
+        foreach($building->floors as &$floor) {
+            $floor->pictures = FloorPictures::where('floorID', $floor->id)->get();
+        }
+
         return Inertia::render('Building-single',[
-            'buildings' => $buildings,
-            'buildingPictures' => $buildingPictures,
-            'project' => $project
+            'building' => $building,
         ]);
     }
 }
