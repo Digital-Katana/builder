@@ -21,12 +21,31 @@ class Flats extends Model
 
     public function floor(): BelongsTo
     {
-        return $this->belongsTo(Floors::class,'FloorID');
+        return $this->belongsTo(Floors::class,'floorID');
     }
 
     public function pictures(): HasMany
     {
         return $this->hasMany(FlatPictures::class);
+    }
+
+    public function getPrice(): int
+    {
+        $price = 0;
+        if ($this->floor->building->project->sqPrice) {
+            $price = $this->floor->building->project->sqPrice;
+        }
+        if ($this->floor->building->sqPrice) {
+            $price = $this->floor->building->sqPrice;
+        }
+        if ($this->floor->sqPrice) {
+            $price = $this->floor->sqPrice;
+        }
+        if ($this->sqPrice) {
+            $price = $this->sqPrice;
+        }
+
+        return $price;
     }
 
 }

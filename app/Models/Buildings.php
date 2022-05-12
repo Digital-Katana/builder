@@ -21,7 +21,7 @@ class Buildings extends Model
 
     public function project(): BelongsTo
     {
-        return $this->belongsTo(Project::class,'projectID');
+        return $this->belongsTo(Projects::class,'projectID');
     }
 
     public function pictures(): HasMany
