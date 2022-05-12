@@ -14,7 +14,7 @@
                         </Link>
                     </li>
                     <li>
-                            {{ building.name }}
+                        {{ building.name }}
                     </li>
                 </ul>
             </div>
@@ -39,28 +39,38 @@
             <!-- end project-slider -->
         </section>
 
-        <section class="content-section ">
+
+        <section class="content-section">
             <div class="container">
                 <div class="row">
-                    <!-- end col-12 -->
                     <div class="col-12">
-                        <ul class="projects">
-                            <li v-for="(floor, index) in building.floors" class="one">
-                                <figure class="project-box">
-                                    <Link :href="'/projects/' + building.project.id + '/buildings/'+ building.id + '/floors/'+ floor.id">
-                                        <img v-if="floor.pictures.length > 0"
-                                             :src="'/images/Floors/' + floor.pictures[0]['imageName']"
-                                             alt="Image">
-                                    </Link>
-                                    <figcaption>
-                                        <h5>Floor: {{ floor.floorNumber }}</h5>
-                                        <h5>Flats: {{ floor.flatCount }}</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                        </ul>
+                        <div class="section-title">
+                            <h6><h2>Floors</h2></h6>
+                        </div>
+                        <!-- end section-title -->
+                    </div>
+                    <!-- end col-12 -->
+                    <div class="col-lg-12">
+                        <div class="row inner">
+                            <Link :href="'/projects/' + building.project.id + '/buildings/'+ building.id + '/floors/'+ floor.id" v-for="(floor, index) in building.floors" class="col-md-3 pb-5">
+                                <div class="recent-news border">
+                                    <figure>
+                                        <img v-if="floor.pictures.length > 0" :src="'/images/Floors/' + floor.pictures[0]['imageName']" alt="Image">
+                                    </figure>
+                                    <div class="content">
+<!--                                        <small>29 February, 2020</small>-->
+                                        <h3>
+                                            <h5>Floor {{ floor.floorNumber }}</h5>
+                                            <h5>Flats: {{ floor.flatCount }}</h5>
+                                        </h3>
+                                    </div>
+                                    <!-- end content -->
+                                </div>
+                                <!-- end recent-news -->
+                            </Link>
+                            <!-- end col-4 -->
+                        </div>
+                        <!-- end row inner -->
                     </div>
                     <!-- end col-12 -->
                 </div>
@@ -68,6 +78,7 @@
             </div>
             <!-- end container -->
         </section>
+        <!-- end content-section -->
 
         <!-- end content-section -->
         <section class="content-section">
