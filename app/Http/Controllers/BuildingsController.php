@@ -25,15 +25,16 @@ class BuildingsController extends Controller
         ]);
     }
 
-    public function single($buildingID,$projectID): Response
+    public function single($projectID,$buildingID): Response
     {
         $building = Buildings::where('id',$buildingID)->first();
         $building->project = Projects::where('id',$building->projectID)->first();
-        $building->pictures = BuildingPictures::where('buildingID', $building->id)->get();
+        $building->renders = BuildingPictures::where(['buildingID' => $buildingID, 'type' => 'RENDER'])->get();
+        $building->blueprints = BuildingPictures::where(['buildingID' => $buildingID, 'type' => 'BLUEPRINT'])->get();
         $building->floors = Floors::where('buildingID', $building->id)->get();
 
         foreach($building->floors as &$floor) {
-            $floor->pictures = FloorPictures::where('floorID', $floor->id)->get();
+            $floor->pictures = FloorPictures::where(['floorID' => $floor->id, 'type' => 'RENDER'])->get();;
         }
 
         return Inertia::render('Building-single',[

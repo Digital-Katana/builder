@@ -15,9 +15,9 @@ class ProjectsController extends Controller
     public function index(): Response
     {
         $projects = Projects::all();
-        $ProjectsPictures = ProjectsPictures::all();
+        $ProjectsPictures = ProjectsPictures::where('type', 'RENDER')->get();;
 
-        return Inertia::render('Projects',[
+        return Inertia::render('Projects', [
             'projects' => $projects,
             'projectPictures' => $ProjectsPictures
         ]);
@@ -25,15 +25,16 @@ class ProjectsController extends Controller
 
     public function single($projectID): Response
     {
-        $project = Projects::where('id',$projectID)->first();
-        $project->pictures = ProjectsPictures::where('projectID', $projectID)->get();
-        $project->buildings = Buildings::where('projectID',$projectID)->get();
+        $project = Projects::where('id', $projectID)->first();
+        $project->renders = ProjectsPictures::where(['projectID' => $projectID, 'type' => 'RENDER'])->get();
+        $project->blueprints = ProjectsPictures::where(['projectID' => $projectID, 'type' => 'BLUEPRINT'])->get();
+        $project->buildings = Buildings::where('projectID', $projectID)->get();
 
-        foreach($project->buildings as &$building) {
+        foreach ($project->buildings as &$building) {
             $building->pictures = BuildingPictures::where('buildingID', $building->id)->get();
         }
 
-        return Inertia::render('Project-single',[
+        return Inertia::render('Project-single', [
             'project' => $project,
         ]);
     }

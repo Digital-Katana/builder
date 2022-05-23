@@ -18,12 +18,12 @@ class FloorsController extends Controller
 {
     public function index(): Response
     {
-        $buildings = Buildings::all();
-        $buildingPictures = BuildingPictures::all();
+        $floors = Floors::all();
+        $floorPictures = Floors::where('type' , 'RENDER')->get();
 
         return Inertia::render('Building',[
-            'buildings' => $buildings,
-            'buildingPictures' => $buildingPictures
+            'Floors' => $floors,
+            'buildingPictures' => $floorPictures
         ]);
     }
 
@@ -32,7 +32,8 @@ class FloorsController extends Controller
         $floor = Floors::where('id',$floorID)->first();
         $floor->project = Projects::where('id',$projectID)->first();
         $floor->building = Buildings::where('id',$buildingID)->first();
-        $floor->pictures = FloorPictures::where('floorID', $floorID)->get();
+        $floor->renders = FloorPictures::where(['floorID' => $floorID, 'type' => 'RENDER'])->get();
+        $floor->blueprints = FloorPictures::where(['floorID' => $floorID, 'type' => 'BLUEPRINT'])->get();
         $floor->flats = Flats::where('floorID', $floorID)->get();
 
         foreach($floor->flats as &$flat) {

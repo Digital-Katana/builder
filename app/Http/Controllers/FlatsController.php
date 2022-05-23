@@ -27,7 +27,7 @@ class FlatsController extends Controller
         ]);
     }
 
-    public function single($buildingID,$projectID,$floorID,$flatID): Response
+    public function single($projectID,$buildingID,$floorID,$flatID): Response
     {
         $flat = Flats::where('id',$flatID)->first();
         $flat->project = Projects::where('id',$projectID)->first();

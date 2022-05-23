@@ -6,7 +6,10 @@
                 <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
                 <ul>
                     <li>
-                        <Link href="/">HOME</Link>
+                        <Link href="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link href="/projects">Projects</Link>
                     </li>
                     <li>
                         <Link :href="'/projects/' + flat.project.id">

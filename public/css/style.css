@@ -2573,6 +2573,8 @@ a:hover {
   width: 100%;
   max-width: inherit;
   min-height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
   filter: grayscale(1);
 }
 .recent-news .content {

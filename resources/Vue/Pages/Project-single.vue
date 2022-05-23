@@ -6,7 +6,10 @@
                 <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
                 <ul>
                     <li>
-                        <Link href="/projects">HOME</Link>
+                        <Link href="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link href="/projects">Projects</Link>
                     </li>
                     <li>{{ project.name }}</li>
                 </ul>
@@ -17,10 +20,11 @@
         <section class="content-section no-bottom-spacing">
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div v-for="(image, index) in project.pictures" class="swiper-slide">
-                        <figure class="project-box"><a href="#"><img :src="'/images/Projects/'+image['imageName']"
-                                                                     alt="Image"></a>
-
+                    <div v-for="(image, index) in project.renders" class="swiper-slide">
+                        <figure class="project-box">
+                            <a href="#">
+                                <img :src="'/images/Projects/'+image['imageName']" alt="Image">
+                            </a>
                         </figure>
                     </div>
 
@@ -41,8 +45,8 @@
                                 <figure class="project-box">
                                     <Link :href="'/projects/' + project.id + '/buildings/'+ building.id">
                                         <img v-if="building.pictures.length > 0"
-                                            :src="'/images/Buildings/' + building.pictures[0]['imageName']"
-                                            alt="Image">
+                                             :src="'/images/Buildings/' + building.pictures[0]['imageName']"
+                                             alt="Image">
                                     </Link>
                                     <figcaption>
                                         <h5>{{ project.name }}</h5>

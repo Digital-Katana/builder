@@ -6,7 +6,13 @@
                 <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
                 <ul>
                     <li>
-                        <Link href="/">HOME</Link>
+                        <Link href="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link href="/projects">Projects</Link>
+                    </li>
+                    <li>
+                        <Link href="/projects">Projects</Link>
                     </li>
                     <li>
                         <Link :href="'/projects/' + floor.project.id">
@@ -29,7 +35,7 @@
         <section class="content-section no-bottom-spacing">
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div v-for="(image, index) in floor.pictures" class="swiper-slide">
+                    <div v-for="(image, index) in floor.renders" class="swiper-slide">
                         <figure class="project-box">
                             <Link href="#">
                                 <img :src="'/images/Floors/'+image['imageName']" alt="Image">
@@ -60,7 +66,7 @@
                             <Link :href="'/projects/' + floor.project.id + '/buildings/'+ floor.building.id + '/floors/'+ floor.id + '/flats/' + flat.id " v-for="(flat, index) in floor.flats" class="col-md-3 pb-5">
                                 <div class="recent-news border">
                                     <figure>
-                                        <img v-if="flat.pictures.length > 0" :src="'/images/Floors/' + flat.pictures[0]['imageName']" alt="Image">
+                                        <img v-if="flat.pictures.length > 0" :src="'/images/Flats/' + flat.pictures[0]['imageName']" alt="Image">
                                     </figure>
                                     <div class="content">
 <!--                                        <small>29 February, 2020</small>-->

@@ -6,7 +6,10 @@
                 <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
                 <ul>
                     <li>
-                        <Link href="/">HOME</Link>
+                        <Link href="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link href="/projects">Projects</Link>
                     </li>
                     <li>
                         <Link :href="'/projects/' + building.project.id">
@@ -24,7 +27,7 @@
         <section class="content-section no-bottom-spacing">
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div v-for="(image, index) in building.pictures" class="swiper-slide">
+                    <div v-for="(image, index) in building.renders" class="swiper-slide">
                         <figure class="project-box">
                             <Link href="#">
                                 <img :src="'/images/Buildings/'+image['imageName']" alt="Image">
