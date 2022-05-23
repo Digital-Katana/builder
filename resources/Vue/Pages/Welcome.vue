@@ -46,15 +46,15 @@
                 <div class="swiper-container slider-main">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/Floors/P1B1F1.png"></div>
+                            <div class="slide-image" data-background="images/Projects/IMG-4314.JPG"></div>
                         </div>
                         <!-- end swiper-slide -->
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/Floors/P1B1F2.png"></div>
+                            <div class="slide-image" data-background="images/Projects/IMG-4315.JPG"></div>
                         </div>
                         <!-- end swiper-slide -->
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/Floors/P1B1F3.png"></div>
+                            <div class="slide-image" data-background="images/Projects/IMG-4316.JPG"></div>
                         </div>
                         <!-- end swiper-slide -->
                     </div>
@@ -120,7 +120,7 @@
                     </div>
                     <!-- end col-12 -->
                     <div class="col-lg-6">
-                        <figure class="side-image"><img src="images/side-image01.png" alt="Image"></figure>
+                        <figure class="side-image"><img src="images/Projects/IMG-4318.JPG" alt="Image"></figure>
                         <!-- end side-image -->
                     </div>
                     <!-- end col-6 -->
@@ -212,33 +212,17 @@
             <!-- end container -->
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <figure class="project-box"><a href="#"><img src="images/slide02.jpg" alt="Image"></a>
+                    <div v-for="(project, index) in projectPictures" class="swiper-slide">
+                        <figure class="project-box">
+                            <Link :href="'projects/'+project.projectID">
+                                <img :src="'/images/Projects/' + project.imageName" alt="Image">
+                            </Link>
                             <figcaption>
                                 <h5>Life Science Center</h5>
                                 <p>The building opened in 2020 and includes more than 120+ flats</p>
                             </figcaption>
                         </figure>
                     </div>
-                    <!-- end swiper-slide -->
-                    <div class="swiper-slide">
-                        <figure class="project-box"><a href="#"><img src="images/slide03.jpg" alt="Image"></a>
-                            <figcaption>
-                                <h5>Life Science Center</h5>
-                                <p>The building opened in 2020 and includes more than 120+ flats</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <!-- end swiper-slide -->
-                    <div class="swiper-slide">
-                        <figure class="project-box"><a href="#"><img src="images/slide01.jpg" alt="Image"></a>
-                            <figcaption>
-                                <h5>Life Science Center</h5>
-                                <p>The building opened in 2020 and includes more than 120+ flats</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <!-- end swiper-slide -->
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
@@ -671,11 +655,19 @@
 
 <script>
 import Layout from "../Shared/Layout";
+import {Link} from "@inertiajs/inertia-vue3";
 
 export default {
     name: "Welcome",
-    components: {Layout}
+    components: {Layout, Link},
+    props: {
+        projectPictures: {
+            type: Array,
+            default: []
+        },
+    }
 }
+
 </script>
 
 <style scoped>

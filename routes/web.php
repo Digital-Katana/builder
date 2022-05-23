@@ -3,6 +3,7 @@
 use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\FlatsController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FloorsController;
 /*
@@ -16,10 +17,7 @@ use App\Http\Controllers\FloorsController;
 |
 */
 
-Route::get('/', function () {
-    return inertia('Welcome');
-//    return view('welcome');
-});
+Route::get('/', [WelcomeController::class, 'index']);
 
 Route::get('/services', function () {
     return inertia('Services');
