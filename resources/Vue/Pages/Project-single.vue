@@ -35,27 +35,38 @@
             <!-- end project-slider -->
         </section>
 
-        <section class="content-section ">
+        <section class="content-section">
             <div class="container">
                 <div class="row">
-                    <!-- end col-12 -->
                     <div class="col-12">
-                        <ul class="projects">
-                            <li v-for="(building, index) in project.buildings" class="one">
-                                <figure class="project-box">
-                                    <Link :href="'/projects/' + project.id + '/buildings/'+ building.id">
+                        <div class="section-title">
+                            <h6><h2>Buildings</h2></h6>
+                        </div>
+                        <!-- end section-title -->
+                    </div>
+                    <!-- end col-12 -->
+                    <div class="col-lg-12">
+                        <div class="row inner">
+                            <Link :href="'/projects/' + project.id + '/buildings/'+ building.id" v-for="(building, index) in project.buildings" class="col-md-3 pb-5">
+                                <div class="recent-news border">
+                                    <figure>
                                         <img v-if="building.pictures.length > 0"
                                              :src="'/images/Buildings/' + building.pictures[0]['imageName']"
                                              alt="Image">
-                                    </Link>
-                                    <figcaption>
-                                        <h5>{{ project.name }}</h5>
-                                    </figcaption>
-                                </figure>
-                                <!-- end project-box -->
-                            </li>
-                            <!-- end li -->
-                        </ul>
+                                    </figure>
+                                    <div class="content">
+                                        <!--                                        <small>29 February, 2020</small>-->
+                                        <h3>
+                                            <h5>{{ building.name }}</h5>
+                                        </h3>
+                                    </div>
+                                    <!-- end content -->
+                                </div>
+                                <!-- end recent-news -->
+                            </Link>
+                            <!-- end col-4 -->
+                        </div>
+                        <!-- end row inner -->
                     </div>
                     <!-- end col-12 -->
                 </div>

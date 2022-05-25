@@ -22,7 +22,7 @@
                         </Link>
                     </li>
                     <li>
-                        <Link :href="'/projects/' + flat.project.id + '/buildings/' + flat.building.id+ '/floors/' + flat.floor.floorNumber">
+                        <Link :href="'/projects/' + flat.project.id + '/buildings/' + flat.building.id+ '/floors/' + flat.floor.id">
                             Floor: {{ flat.floor.floorNumber }}
                         </Link>
                     </li>
