@@ -1,7 +1,7 @@
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import { i18nVue } from 'laravel-vue-i18n'
-
+import { InertiaProgress } from '@inertiajs/progress'
 
 
 createInertiaApp({
@@ -17,4 +17,14 @@ createInertiaApp({
     },
 })
 
+InertiaProgress.init({
+    // The color of the progress bar.
+    color: '#feed01',
+
+    // Whether to include the default NProgress styles.
+    includeCSS: true,
+
+    // Whether the NProgress spinner will be shown.
+    showSpinner: false,
+})
 require('./bootstrap');

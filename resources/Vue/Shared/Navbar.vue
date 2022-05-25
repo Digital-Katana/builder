@@ -97,6 +97,9 @@
                         </ul>
                     </li>
                     <li>
+                        <NavLink :active="$page.component === 'Find-flats'" href="/findflats">Find flats</NavLink>
+                    </li>
+                    <li>
                         <NavLink :active="$page.component === 'services'" href="/services">{{ $t("Services") }}
                         </NavLink>
                     </li>
@@ -120,8 +123,6 @@
                 <div id="cross"><span></span> <span></span></div>
             </div>
             <!-- end hamburger -->
-            <!-- end hamburher -->
-            <a href="#sales-specialist-form" class="navbar-button" data-fancybox><i class="lni lni-mobile"></i> <span>SALES SPECIALIST</span></a>
         </div>
         <!-- end container -->
     </nav>
