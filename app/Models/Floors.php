@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,7 +18,7 @@ class Floors extends Model
     protected $primaryKey = 'id';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
+    protected $appends = ['Renders','Blueprints'];
 
     public function building(): BelongsTo
     {
@@ -26,7 +27,22 @@ class Floors extends Model
 
     public function pictures(): HasMany
     {
-        return $this->hasMany(FloorPictures::class);
+        return $this->hasMany(FloorPictures::class, 'floorID');
+    }
+
+    public function flats(): HasMany
+    {
+        return $this->hasMany(Flats::class, 'floorID');
+    }
+
+    public function getRendersAttribute(): Collection
+    {
+        return $this->pictures()->where('type','RENDER')->get();
+    }
+
+    public function getBlueprintsAttribute(): Collection
+    {
+        return $this->pictures()->where('type','BLUEPRINT')->get();
     }
 
 }

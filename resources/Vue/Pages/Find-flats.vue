@@ -1,55 +1,171 @@
 <template>
     <layout>
-        <header class="page-header">
+        <section class="p-5 mt-0 ontent-section calculator">
+            <!-- end bg-image -->
             <div class="container">
-                <h1>Flat: {{ flat.flatNumber }}</h1>
-                <h6>Small Programs Perfect For Beginners To Get Started With Personal Growth</h6>
-                <ul>
-                    <li>
-                        <Link href="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link href="/projects">Projects</Link>
-                    </li>
-                    <li>
-                        <Link :href="'/projects/' + flat.floor.building.project.id">
-                            {{ flat.floor.building.project.name }}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link :href="'/projects/' + flat.floor.building.project.id + '/buildings/' + flat.floor.building.id">
-                            {{ flat.floor.building.name }}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link :href="'/projects/' + flat.floor.building.project.id + '/buildings/' + flat.floor.building.id + '/floors/' + flat.floor.id">
-                            Floor: {{ flat.floor.floorNumber }}
-                        </Link>
-                    </li>
-                    <li>
-                        Flat: {{ flat.flatNumber }}
-                    </li>
-                </ul>
+                <div class="mt-5 row no-gutters">
+                    <div class="col-12 mt-lg-5">
+                        <div class="section-title text-left">
+                            <h6><h2>Search Flats with Filters Below</h2></h6>
+                        </div>
+                        <!-- end section-title -->
+                    </div>
+                    <!-- end col-12 -->
+                    <div class="col-lg-10">
+                        <form @submit.prevent="submit" class="form">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <p>m² From :</p>
+                                    <div class="range-slider">
+                                        <input v-model="form.sqmFrom" class="range-slider__range" type="range" min="0" max="150"
+                                               step="1">
+                                        <span class="range-slider__value">0</span></div>
+                                    <!-- edn range-slider -->
+                                </div>
+                                <!-- end form-group -->
+                                <div class="form-group col-md-6">
+                                    <p>m² to :</p>
+                                    <div class="range-slider">
+                                        <input v-model="form.sqmTo" class="range-slider__range" type="range"  min="0" max="150"
+                                               step="1">
+                                        <span class="range-slider__value">150</span></div>
+                                    <!-- edn range-slider -->
+                                </div>
+                                <!-- end form-group -->
+                                <div class="form-group col-md-6">
+                                    <p>price From :</p>
+                                    <div class="range-slider">
+                                        <input v-model="form.priceFrom" class="range-slider__range" type="range" min="0" max="200000"
+                                               step="1">
+                                        <span class="range-slider__value">0</span><span> $</span></div>
+                                    <!-- edn range-slider -->
+                                </div>
+                                <!-- end form-group -->
+                                <div class="form-group col-md-6">
+                                    <p>price to :</p>
+                                    <div class="range-slider">
+                                        <input v-model="form.priceTo" class="range-slider__range" type="range" min="0" max="200000"
+                                               step="1">
+                                        <span class="range-slider__value">200000</span><span> $</span></div>
+                                    <!-- edn range-slider -->
+                                </div>
+                                <!-- end form-group -->
+                                <div class="form-group col-lg-4 col-md-6">
+                                    <p>Project :</p>
+                                    <select v-model="form.projectID" v-on:change="getbuildings($event)">
+                                        <option value="all" >All</option>
+                                        <option :value="project.id" v-for="(project, index) in projects" > {{ project.name }} </option>
+                                    </select>
+                                </div>
+                                <!-- end form-group -->
+
+                                <div class="form-group col-lg-4 col-md-6">
+                                    <p>Building :</p>
+                                    <select v-model="form.buildingID" v-on:change="getproject($event)">
+                                        <option value="all" >All</option>
+                                        <option :value="building.id" v-for="(building, index) in project_buildings" > {{ building.name }} </option>
+                                    </select>
+                                </div>
+                                <!-- end form-group -->
+
+                                <div class="form-group col-lg-4 col-md-6">
+                                    <p>Building :</p>
+                                    <select v-model="form.hasBalcony">
+                                        <option value="yes" >Yes</option>
+                                        <option value="no" >No</option>
+                                    </select>
+                                </div>
+                                <!-- end form-group -->
+                                <div class="form-group col-md-6">
+                                    <p>Floor from:</p>
+                                    <div class="range-slider">
+                                        <input v-model="form.floorFrom" class="range-slider__range" type="range" min="1" max="35"
+                                               step="1">
+                                        <span class="range-slider__value">1</span></div>
+                                    <!-- edn range-slider -->
+                                </div>
+                                <!-- end form-group -->
+                                <!-- end form-group -->
+                                <div class="form-group col-md-6">
+                                    <p>Floor to:</p>
+                                    <div class="range-slider">
+                                        <input v-model="form.floorTo" class="range-slider__range" type="range" min="1" max="35"
+                                               step="1">
+                                        <span class="range-slider__value">35</span></div>
+                                    <!-- edn range-slider -->
+                                </div>
+                                <!-- end form-group -->
+                                <div class="form-group col-12">
+                                    <p>Flat Direction:</p>
+                                    <input type="checkbox" v-model="form.directions.north" id="one" checked>
+                                    <label class="custom-checkbox" for="one"> North </label>
+                                    <input type="checkbox" v-model="form.directions.south" id="two" checked>
+                                    <label class="custom-checkbox" for="two"> South </label>
+                                    <input type="checkbox" v-model="form.directions.east" id="three" checked>
+                                    <label class="custom-checkbox" for="three"> East </label>
+                                    <input type="checkbox" v-model="form.directions.west" id="four" checked>
+                                    <label class="custom-checkbox" for="four"> West </label>
+                                </div>
+                                <!-- end form-group -->
+                                <div class="form-group col-12">
+                                    <button type="submit" class="price-box border-0"> Search </button>
+                                    <!-- end price-box -->
+                                </div>
+                                <!-- end form-group -->
+                            </div>
+                            <!-- end form row -->
+                        </form>
+                        <!-- end mortgage-form -->
+                    </div>
+                    <!-- end col-9 -->
+                </div>
+                <!-- end row -->
             </div>
             <!-- end container -->
-        </header>
-        <!-- end page-header -->
-        <section class="content-section no-bottom-spacing">
-            <div class="swiper-container project-slider">
-                <div class="swiper-wrapper">
-                    <div v-for="(image, index) in flat.Renders" class="swiper-slide">
-                        <figure class="project-box">
-                            <Link href="#">
-                                <img :src="'/images/Flats/'+image['imageName']" alt="Image">
-                            </Link>
-                        </figure>
+        </section>
+        <!-- end content-section -->
+        <section class="content-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-title">
+                            <h6><h2>Flats</h2></h6>
+                        </div>
+                        <!-- end section-title -->
                     </div>
-
+                    <!-- end col-12 -->
+                    <div class="col-lg-12">
+                        <div class="row inner">
+                            <Link :href="'/projects/' + flat.floor.building.project.id + '/buildings/'+ flat.floor.building.id + '/floors/'+ flat.floor.id + '/flats/' + flat.id " v-for="(flat, index) in flats" class="col-md-3 pb-5">
+                                <div class="recent-news border">
+                                    <figure>
+                                        <img v-if="flat.Renders.length > 0" :src="'/images/Flats/' + flat.Renders[0]['imageName']" alt="Image">
+                                    </figure>
+                                    <div class="content">
+                                        <!--                                        <small>29 February, 2020</small>-->
+                                        <h3>
+                                            <h5>Project : {{ flat.floor.building.project.name }}</h5>
+                                            <h5>Building : {{ flat.floor.building.name }}</h5>
+                                            <h5>Floor : {{ flat.floor.floorNumber }}</h5>
+                                            <h5># {{ flat.flatNumber }}</h5>
+                                            <h5>{{ flat.sumSQM }} M2</h5>
+                                            <h5>m² Price: {{ flat.Price }} $</h5>
+                                            <h5>Price: {{ flat.Price * flat.sumSQM }} $</h5>
+                                        </h3>
+                                    </div>
+                                    <!-- end content -->
+                                </div>
+                                <!-- end recent-news -->
+                            </Link>
+                            <!-- end col-4 -->
+                        </div>
+                        <!-- end row inner -->
+                    </div>
+                    <!-- end col-12 -->
                 </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
+                <!-- end row -->
             </div>
-            <!-- end project-slider -->
+            <!-- end container -->
         </section>
         <!-- end content-section -->
         <section class="content-section">
@@ -297,23 +413,88 @@
 </template>
 
 <script>
+import { reactive } from 'vue'
 import Layout from "../Shared/Layout";
 import {Link} from "@inertiajs/inertia-vue3";
+import { Inertia } from '@inertiajs/inertia'
+import {useForm, usePage} from "@inertiajs/inertia-vue3";
 
 export default {
-    name: "Flat-single",
+    name: "Find-flats",
     components: {
         Layout,
         Link
     },
+    setup() {
+        const form = reactive({
+            projectID: 'all',
+            buildingID: 'all',
+            sqmFrom: 0,
+            sqmTo: 150,
+            priceFrom: 0,
+            priceTo: 200000,
+            hasBalcony: 'yes',
+            floorFrom: 0,
+            floorTo: 35,
+            directions: {
+                north: true,
+                south: true,
+                east: true,
+                west: true,
+            }
+        })
+
+        function submit() {
+            Inertia.post('/findflats', form,{
+                preserveScroll: true
+            })
+        }
+
+        return { form, submit }
+    },
+    data() {
+    return {project_buildings: this.buildings,};
+    },
     props: {
-        flat: {
-            type: Object,
-            default: {}
+        flats: {
+            type: Array,
+            default: []
+        },
+        floors:{
+            type: Array,
+            default: []
+        },
+        buildings:{
+            type: Array,
+            default: []
+        },
+        projects:{
+            type: Array,
+            default: []
         },
     },
     methods: {
-
+        getbuildings: function(e) {
+            this.project_buildings = [];
+            if (this.form.projectID === 'all'){
+                this.project_buildings = this.buildings;
+            } else {
+                this.buildings.forEach((building) => {
+                    if (building.projectID === this.form.projectID ){
+                        this.project_buildings.push(building);
+                    }
+                })
+            }
+        },
+        getproject: function(e) {
+            if (this.form.buildingID !== 'all'){
+                this.buildings.find(building =>{
+                    if (building.id === this.form.buildingID){
+                        this.form.projectID = building.projectID;
+                    }
+                })
+            }
+        },
     },
 }
 </script>

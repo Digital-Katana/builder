@@ -17,7 +17,7 @@ class WelcomeController extends Controller
 {
     public function index(): Response
     {
-        $ProjectsPictures = ProjectsPictures::where('type', 'RENDER')->get();;
+        $ProjectsPictures = ProjectsPictures::where('type', 'RENDER')->get();
 
         return Inertia::render('Welcome', [
             'projectPictures' => $ProjectsPictures

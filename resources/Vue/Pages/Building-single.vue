@@ -58,7 +58,7 @@
                             <Link :href="'/projects/' + building.project.id + '/buildings/'+ building.id + '/floors/'+ floor.id" v-for="(floor, index) in building.floors" class="col-md-3 pb-5">
                                 <div class="recent-news border">
                                     <figure>
-                                        <img v-if="floor.pictures.length > 0" :src="'/images/Floors/' + floor.pictures[0]['imageName']" alt="Image">
+                                        <img v-if="floor.Renders.length > 0" :src="'/images/Floors/' + floor.Renders[0]['imageName']" alt="Image">
                                     </figure>
                                     <div class="content">
 <!--                                        <small>29 February, 2020</small>-->

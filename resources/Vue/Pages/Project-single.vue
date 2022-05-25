@@ -20,7 +20,7 @@
         <section class="content-section no-bottom-spacing">
             <div class="swiper-container project-slider">
                 <div class="swiper-wrapper">
-                    <div v-for="(image, index) in project.renders" class="swiper-slide">
+                    <div v-for="(image, index) in project.Renders" class="swiper-slide">
                         <figure class="project-box">
                             <a href="#">
                                 <img :src="'/images/Projects/'+image['imageName']" alt="Image">
@@ -50,8 +50,8 @@
                             <Link :href="'/projects/' + project.id + '/buildings/'+ building.id" v-for="(building, index) in project.buildings" class="col-md-3 pb-5">
                                 <div class="recent-news border">
                                     <figure>
-                                        <img v-if="building.pictures.length > 0"
-                                             :src="'/images/Buildings/' + building.pictures[0]['imageName']"
+                                        <img v-if="building.Renders.length > 0"
+                                             :src="'/images/Buildings/' + building.Renders[0]['imageName']"
                                              alt="Image">
                                     </figure>
                                     <div class="content">

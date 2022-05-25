@@ -545,9 +545,9 @@ a:hover{text-decoration: underline; color:$color-dark;}
 		input[type="checkbox"]:checked + .custom-checkbox{border-color:$color-main; background: $color-main; color: $color-dark;}
 		.info-box{width: 65%; float: left; margin-top: 50px;}
 		.info-box i{color: #4cd964; font-size: 20px; transform: translateY(2px);}
-		.price-box{  float: right; background: $color-main; padding:30px 50px; margin-right: -50px; margin-bottom: -50px;
+		.price-box{  float: right; background: $color-main; padding:30px 50px; margin-right: -50px; margin-bottom: -50px; transition: all 0.25s ease-in-out;
 			small{width: 100%; display: block; font-weight: 600; margin-bottom: 5px;}
-			span{font-size: 50px; font-weight: 800; line-height: 1;}}}}
+			span{font-size: 50px; font-weight: 800; line-height: 1;} &:hover{ background: $color-dark; color: white; transition: all 0.25s ease-in-out;}}}}
 
 
 
@@ -877,7 +877,7 @@ a:hover{text-decoration: underline; color:$color-dark;}
 .range-slider__range::-moz-range-thumb { width: 20px; height: 20px; border: 0; border-radius: 50%; background: $color-main; cursor: pointer; -moz-transition: background .15s ease-in-out; transition: background .15s ease-in-out;}
 .range-slider__range:active::-moz-range-thumb {  background: $color-main;}
 .range-slider__range:focus::-webkit-slider-thumb {  box-shadow: 0 0 0 3px #fff, 0 0 0 6px $color-main;}
-.range-slider__value {  display: inline-block;  position: relative;  width: 60px;  color: $color-dark;  line-height: 20px;  text-align: center;  background: $color-main;  padding: 5px 10px;}
+.range-slider__value {  display: inline-block;  position: relative;  width: fit-content;  color: $color-dark;  line-height: 20px;  text-align: center;  background: $color-main;  padding: 5px 10px;}
 ::-moz-range-track {  background: $color-main;  border: 0;}
 input::-moz-focus-inner, input::-moz-focus-outer {  border: 0;}
 

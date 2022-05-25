@@ -26,9 +26,6 @@ class ProjectsController extends Controller
     public function single($projectID): Response
     {
         $project = Projects::where('id', $projectID)->first();
-        $project->renders = ProjectsPictures::where(['projectID' => $projectID, 'type' => 'RENDER'])->get();
-        $project->blueprints = ProjectsPictures::where(['projectID' => $projectID, 'type' => 'BLUEPRINT'])->get();
-        $project->buildings = Buildings::where('projectID', $projectID)->get();
 
         foreach ($project->buildings as &$building) {
             $building->pictures = BuildingPictures::where('buildingID', $building->id)->get();

@@ -1738,6 +1738,7 @@ a:hover {
   padding: 30px 50px;
   margin-right: -50px;
   margin-bottom: -50px;
+  transition: all 0.25s ease-in-out;
 }
 .calculator .form .price-box small {
   width: 100%;
@@ -1749,6 +1750,11 @@ a:hover {
   font-size: 50px;
   font-weight: 800;
   line-height: 1;
+}
+.calculator .form .price-box:hover {
+  background: #0b0b0b;
+  color: white;
+  transition: all 0.25s ease-in-out;
 }
 
 /* STEP BOX */
@@ -3164,7 +3170,9 @@ a:hover {
 .range-slider__value {
   display: inline-block;
   position: relative;
-  width: 60px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   color: #0b0b0b;
   line-height: 20px;
   text-align: center;

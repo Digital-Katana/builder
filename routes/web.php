@@ -24,6 +24,12 @@ Route::get('/services', function () {
 //    return view('Services');
 });
 
+
+Route::get('/findflats', [FlatsController::class, 'findflats']);
+Route::post('/findflats', [FlatsController::class, 'getflats']);
+
+
+// Projetc -> Building -> Floor -> Flat
 Route::get('/projects', [ProjectsController::class, 'index']);
 
 Route::get('/projects/{projectID}', [ProjectsController::class, 'single']);
