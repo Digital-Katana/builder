@@ -14,6 +14,9 @@
                     <div class="col-lg-10">
                         <form @submit.prevent="submit" class="form">
                             <div class="row">
+                                <div v-if="form.errors.sqmTo" class="d-block invalid-feedback">
+                                    'm² to' must be more than 'm² From'.
+                                </div>
                                 <div class="form-group col-md-6">
                                     <p>m² From :</p>
                                     <div class="range-slider">
@@ -32,6 +35,9 @@
                                     <!-- edn range-slider -->
                                 </div>
                                 <!-- end form-group -->
+                                <div v-if="form.errors.priceTo" class="d-block invalid-feedback">
+                                    'price to' must be more than 'price From'.
+                                </div>
                                 <div class="form-group col-md-6">
                                     <p>price From :</p>
                                     <div class="range-slider">
@@ -76,6 +82,9 @@
                                     </select>
                                 </div>
                                 <!-- end form-group -->
+                                <div v-if="form.errors.floorTo" class="d-block invalid-feedback">
+                                    'Floor to' must be more than 'Floor From'.
+                                </div>
                                 <div class="form-group col-md-6">
                                     <p>Floor from:</p>
                                     <div class="range-slider">
@@ -124,7 +133,7 @@
             <!-- end container -->
         </section>
         <!-- end content-section -->
-        <section class="content-section">
+        <section id="flats" class="content-section">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -426,7 +435,7 @@ export default {
         Link
     },
     setup() {
-        const form = reactive({
+        const form = useForm({
             projectID: 'all',
             buildingID: 'all',
             sqmFrom: 0,
@@ -445,8 +454,19 @@ export default {
         })
 
         function submit() {
-            Inertia.post('/findflats', form,{
-                preserveScroll: true
+            form.post('/findflats',{
+                preserveScroll: true,
+                onSuccess: page => {
+                    var element = document.getElementById("flats");
+                    element.scrollIntoView({behavior: "smooth", inline: "nearest"});
+                },
+                onError: errors => {
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: 'smooth'
+                    });
+                },
             })
         }
 

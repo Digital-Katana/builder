@@ -43,13 +43,11 @@ class FlatsController extends Controller
     public function findflats(): Response
     {
 
-        $flats = Flats::all();
         $floors = Floors::all();
         $buildings = Buildings::all();
         $projects = Projects::all();
 
         return Inertia::render('Find-flats', [
-            'flats' => $flats,
             'floors' => $floors,
             'buildings' => $buildings,
             'projects' => $projects
@@ -62,12 +60,12 @@ class FlatsController extends Controller
             "projectID" => 'required',
             "buildingID" => 'required',
             "sqmFrom" => 'required',
-            "sqmTo" => 'required',
+            "sqmTo" => 'required|greater_than_field:sqmFrom',
             "priceFrom" => 'required',
-            "priceTo" => 'required',
+            "priceTo" => 'required|greater_than_field:priceFrom',
             "hasBalcony" => 'required',
             "floorFrom" => 'required',
-            "floorTo" => 'required',
+            "floorTo" => 'required|greater_than_field:floorFrom',
             "directions" => [
                 "north" => 'required',
                 "south" => 'required',
@@ -126,8 +124,15 @@ class FlatsController extends Controller
                     );
         })->values();
 
+        $floors = Floors::all();
+        $buildings = Buildings::all();
+        $projects = Projects::all();
+
         return Inertia::render('Find-flats', [
             'flats' => $flats,
+            'floors' => $floors,
+            'buildings' => $buildings,
+            'projects' => $projects
         ]);
 
     }
