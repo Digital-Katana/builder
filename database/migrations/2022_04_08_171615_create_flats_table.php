@@ -25,7 +25,7 @@ return new class extends Migration
             $table->integer('liveableSQM');
             $table->integer('balconySQM')->nullable();
             $table->integer('sumSQM');
-            $table->integer('sqPrice')->nullable();
+            $table->integer('sqPrice')->default(700);
             $table->integer('roomCount')->nullable();
             $table->enum('compassDirection',['NORTH','EAST','SOUTH','WEST']);
             $table->boolean('hasBalcony')->default(true);

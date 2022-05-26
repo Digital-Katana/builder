@@ -43,13 +43,11 @@ class FlatsController extends Controller
     public function findflats(): Response
     {
 
-        $flats = Flats::paginate(30);
         $floors = Floors::all();
         $buildings = Buildings::all();
         $projects = Projects::all();
 
         return Inertia::render('Find-flats', [
-            'flats' => $flats,
             'floors' => $floors,
             'buildings' => $buildings,
             'projects' => $projects
@@ -75,27 +73,30 @@ class FlatsController extends Controller
                 "west" => 'required',
             ],
             "page" => 'required',
+            "orderby" => 'required',
         ]);
 
 
         $flats = Flats::whereHas('floor', function (Builder $query) use ($filters) {
             $query
-            ->where('floorNumber', '>=', $filters['floorFrom'])
-            ->where('floorNumber', '<=', $filters['floorTo'])
-            ->whereHas('building', function (Builder $query) use ($filters) {
-                if ($filters['buildingID'] != 'all') {
-                    $query->where('buildings.id', $filters['buildingID']);
-                }
-                $query
-                ->whereHas('project', function (Builder $query) use ($filters) {
-                    if ($filters['projectID'] != 'all') {
-                        $query->where('projects.id', $filters['projectID']);
+                ->where('floorNumber', '>=', $filters['floorFrom'])
+                ->where('floorNumber', '<=', $filters['floorTo'])
+                ->whereHas('building', function (Builder $query) use ($filters) {
+                    if ($filters['buildingID'] != 'all') {
+                        $query->where('buildings.id', $filters['buildingID']);
                     }
+                    $query
+                        ->whereHas('project', function (Builder $query) use ($filters) {
+                            if ($filters['projectID'] != 'all') {
+                                $query->where('projects.id', $filters['projectID']);
+                            }
+                        });
                 });
-            });
         })
-        ->where('sumSQM', '>=', $filters['sqmFrom'])
-        ->where('sumSQM', '<=', $filters['sqmTo']);
+            ->where('sumSQM', '>=', $filters['sqmFrom'])
+            ->where('sumSQM', '<=', $filters['sqmTo'])
+            ->where(DB::raw('(sumSQM * sqPrice)'), '>=' , $filters['priceFrom'])
+            ->where(DB::raw('(sumSQM * sqPrice)'), '<=' , $filters['priceTo']);
 
 
         // Has Balcony
@@ -111,26 +112,38 @@ class FlatsController extends Controller
         // Directions
         $directions = [];
         foreach ($filters["directions"] as $key => $direction) {
-            if ($direction){
+            if ($direction) {
                 $directions[] = strtoupper($key);
             }
         }
-        if (!empty($directions)){
+        if (!empty($directions)) {
             $flats->whereIn('compassDirection', $directions);
+        }
+
+        // Order by
+        if ($filters['orderby'] == 'sqm-asc') {
+            $flats->orderBy('sumSQM', 'asc');
+        } elseif ($filters['orderby'] == 'sqm-desc') {
+            $flats->orderBy('sumSQM', 'desc');
+        } elseif ($filters['orderby'] == 'pricesqm-asc') {
+            $flats->orderBy('sqPrice', 'asc');
+        } elseif ($filters['orderby'] == 'pricesqm-desc') {
+            $flats->orderBy('sqPrice', 'desc');
+        } elseif ($filters['orderby'] == 'price-asc') {
+            $flats->orderByRaw('(sumSQM * sqPrice) asc');
+        } elseif ($filters['orderby'] == 'price-desc') {
+            $flats->orderByRaw('(sumSQM * sqPrice) desc');
         }
 
 
         $flats = $flats->paginate(30);
         $collection = $flats->getCollection();
 
+        foreach ($collection as &$flat) {
+            $flat->floor->building->load('project');
+        }
 
-        $collection = $collection->filter(function ($flat) use ($filters) {
-            return (
-                $flat->Price * $flat->sumSQM >= $filters['priceFrom'] &&
-                $flat->Price * $flat->sumSQM <= $filters['priceTo']
-                    );
-        });
-        $flats->setCollection($collection);
+        $flats->setcollection($collection);
 
         $floors = Floors::all();
         $buildings = Buildings::all();

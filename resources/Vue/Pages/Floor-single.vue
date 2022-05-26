@@ -73,7 +73,8 @@
                                         <h3>
                                             <h5># {{ flat.flatNumber }}</h5>
                                             <h5>{{ flat.sumSQM }} M2</h5>
-                                            <h5>Price: {{ flat.sqPrice }} $</h5>
+                                            <h5>Price M2: {{ flat.sqPrice }} $</h5>
+                                            <h5>Price: {{ flat.sqPrice * flat.sumSQM }} $</h5>
                                         </h3>
                                     </div>
                                     <!-- end content -->

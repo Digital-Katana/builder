@@ -19,7 +19,7 @@ class Flats extends Model
     protected $primaryKey = 'id';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-    protected $appends = ['Renders','Blueprints','Price'];
+    protected $appends = ['Renders','Blueprints'];
 
 
     public function floor(): BelongsTo
@@ -40,25 +40,6 @@ class Flats extends Model
     public function getBlueprintsAttribute(): Collection
     {
         return $this->pictures()->where('type','BLUEPRINT')->get();
-    }
-
-    public function getPriceAttribute(): int
-    {
-        $price = 0;
-        if ($this->floor->building->project->sqPrice) {
-            $price = $this->floor->building->project->sqPrice;
-        }
-        if ($this->floor->building->sqPrice) {
-            $price = $this->floor->building->sqPrice;
-        }
-        if ($this->floor->sqPrice) {
-            $price = $this->floor->sqPrice;
-        }
-        if ($this->sqPrice) {
-            $price = $this->sqPrice;
-        }
-
-        return $price;
     }
 
 }
