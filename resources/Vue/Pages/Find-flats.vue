@@ -20,7 +20,7 @@
                                 <div class="form-group col-md-6">
                                     <p>m² From :</p>
                                     <div class="range-slider">
-                                        <input v-model="form.sqmFrom" class="range-slider__range" type="range" min="0" max="150"
+                                        <input v-model="form.sqmFrom" class="range-slider__range" type="range" min="0" max="300"
                                                step="1">
                                         <span class="range-slider__value">0</span></div>
                                     <!-- edn range-slider -->
@@ -29,9 +29,9 @@
                                 <div class="form-group col-md-6">
                                     <p>m² to :</p>
                                     <div class="range-slider">
-                                        <input v-model="form.sqmTo" class="range-slider__range" type="range"  min="0" max="150"
+                                        <input v-model="form.sqmTo" class="range-slider__range" type="range"  min="0" max="300"
                                                step="1">
-                                        <span class="range-slider__value">150</span></div>
+                                        <span class="range-slider__value">300</span></div>
                                     <!-- edn range-slider -->
                                 </div>
                                 <!-- end form-group -->
@@ -41,7 +41,7 @@
                                 <div class="form-group col-md-6">
                                     <p>price From :</p>
                                     <div class="range-slider">
-                                        <input v-model="form.priceFrom" class="range-slider__range" type="range" min="0" max="200000"
+                                        <input v-model="form.priceFrom" class="range-slider__range" type="range" min="0" max="2000000"
                                                step="1">
                                         <span class="range-slider__value">0</span><span> $</span></div>
                                     <!-- edn range-slider -->
@@ -50,9 +50,9 @@
                                 <div class="form-group col-md-6">
                                     <p>price to :</p>
                                     <div class="range-slider">
-                                        <input v-model="form.priceTo" class="range-slider__range" type="range" min="0" max="200000"
+                                        <input v-model="form.priceTo" class="range-slider__range" type="range" min="0" max="2000000"
                                                step="1">
-                                        <span class="range-slider__value">200000</span><span> $</span></div>
+                                        <span class="range-slider__value">2000000</span><span> $</span></div>
                                     <!-- edn range-slider -->
                                 </div>
                                 <!-- end form-group -->
@@ -75,8 +75,9 @@
                                 <!-- end form-group -->
 
                                 <div class="form-group col-lg-4 col-md-6">
-                                    <p>Building :</p>
+                                    <p>Balcony :</p>
                                     <select v-model="form.hasBalcony">
+                                        <option value="all" >All</option>
                                         <option value="yes" >Yes</option>
                                         <option value="no" >No</option>
                                     </select>
@@ -144,8 +145,17 @@
                     </div>
                     <!-- end col-12 -->
                     <div class="col-lg-12">
+
+                        <v-pagination class="mb-3"
+                            v-model="form.page"
+                            :pages="flats.last_page"
+                            :range-size="3"
+                            active-color="#DCEDFF"
+                            @update:modelValue="submit"
+                        />
+
                         <div class="row inner">
-                            <Link :href="'/projects/' + flat.floor.building.project.id + '/buildings/'+ flat.floor.building.id + '/floors/'+ flat.floor.id + '/flats/' + flat.id " v-for="(flat, index) in flats" class="col-md-3 pb-5">
+                            <Link :href="'/projects/' + flat.floor.building.project.id + '/buildings/'+ flat.floor.building.id + '/floors/'+ flat.floor.id + '/flats/' + flat.id " v-for="(flat, index) in flats.data" class="col-md-3 pb-5">
                                 <div class="recent-news border">
                                     <figure>
                                         <img v-if="flat.Renders.length > 0" :src="'/images/Flats/' + flat.Renders[0]['imageName']" alt="Image">
@@ -169,6 +179,13 @@
                             <!-- end col-4 -->
                         </div>
                         <!-- end row inner -->
+                        <v-pagination class="mt-3"
+                            v-model="form.page"
+                            :pages="flats.last_page"
+                            :range-size="3"
+                            active-color="#DCEDFF"
+                            @update:modelValue="submit"
+                        />
                     </div>
                     <!-- end col-12 -->
                 </div>
@@ -427,22 +444,25 @@ import Layout from "../Shared/Layout";
 import {Link} from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia'
 import {useForm, usePage} from "@inertiajs/inertia-vue3";
+import VPagination from "@hennge/vue3-pagination";
+import "@hennge/vue3-pagination/dist/vue3-pagination.css";
 
 export default {
     name: "Find-flats",
     components: {
         Layout,
-        Link
+        Link,
+        VPagination
     },
     setup() {
         const form = useForm({
             projectID: 'all',
             buildingID: 'all',
             sqmFrom: 0,
-            sqmTo: 150,
+            sqmTo: 300,
             priceFrom: 0,
-            priceTo: 200000,
-            hasBalcony: 'yes',
+            priceTo: 2000000,
+            hasBalcony: 'all',
             floorFrom: 0,
             floorTo: 35,
             directions: {
@@ -450,7 +470,8 @@ export default {
                 south: true,
                 east: true,
                 west: true,
-            }
+            },
+            page: 1
         })
 
         function submit() {
@@ -477,8 +498,8 @@ export default {
     },
     props: {
         flats: {
-            type: Array,
-            default: []
+            type: Object,
+            default: {}
         },
         floors:{
             type: Array,
