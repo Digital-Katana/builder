@@ -150,7 +150,6 @@
                             v-model="form.page"
                             :pages="flats.last_page"
                             :range-size="3"
-                            active-color="#DCEDFF"
                             @update:modelValue="submit"
                         />
 
@@ -183,7 +182,6 @@
                             v-model="form.page"
                             :pages="flats.last_page"
                             :range-size="3"
-                            active-color="#DCEDFF"
                             @update:modelValue="submit"
                         />
                     </div>

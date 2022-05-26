@@ -3558,3 +3558,23 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     margin-right: 10px;
   }
 }
+.Page {
+  transition: all 0.25s ease-in-out;
+}
+.Page:hover {
+  background: #0b0b0b !important;
+  color: white;
+  transition: all 0.25s ease-in-out;
+  border: none !important;
+}
+
+.Page-active {
+  background: #feed01 !important;
+  color: #0b0b0b !important;
+  border: 2px solid #0b0b0b !important;
+}
+.Page-active:hover {
+  color: white !important;
+  transition: all 0.25s ease-in-out;
+  border: 2px solid #0b0b0b !important;
+}

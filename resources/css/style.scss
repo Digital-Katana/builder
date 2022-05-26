@@ -982,3 +982,28 @@ input::-moz-focus-inner, input::-moz-focus-outer {  border: 0;}
 	.footer .footer-bottom ul{float: left;}
 	.footer .footer-bottom ul li{ margin-left: 0; margin-right: 10px;}
 }
+
+// Pagination
+
+.Page {
+    transition: all 0.25s ease-in-out;
+
+    &:hover{
+        background: $color-dark !important;
+        color: white;
+        transition: all 0.25s ease-in-out;
+        border: none !important;
+    }
+}
+
+.Page-active {
+    background: $color-main !important;
+    color: $color-dark !important;
+    border: 2px solid $color-dark !important;
+
+    &:hover {
+        color: white !important;
+        transition: all 0.25s ease-in-out;
+        border: 2px solid $color-dark !important;
+    }
+}
