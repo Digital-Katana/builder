@@ -21,7 +21,7 @@ class FlatsCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -33,38 +33,38 @@ class FlatsCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
     protected function setupListOperation()
     {
-        CRUD::column('balconySQM');
+        CRUD::column('id');
         CRUD::column('compassDirection');
-        CRUD::column('created_at');
         CRUD::column('flatNumber');
         CRUD::column('floorID');
         CRUD::column('hasBalcony');
-        CRUD::column('id');
         CRUD::column('isSold');
-        CRUD::column('liveableSQM');
         CRUD::column('name');
         CRUD::column('roomCount');
         CRUD::column('sqPrice');
+        CRUD::column('balconySQM');
+        CRUD::column('liveableSQM');
         CRUD::column('sumSQM');
         CRUD::column('typeID');
+        CRUD::column('created_at');
         CRUD::column('updated_at');
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -72,37 +72,48 @@ class FlatsCrudController extends CrudController
     {
         CRUD::setValidation(FlatsRequest::class);
 
-        CRUD::field('balconySQM');
-        CRUD::field('compassDirection');
-        CRUD::field('created_at');
+        CRUD::field('name');
         CRUD::field('flatNumber');
         CRUD::field('floorID');
         CRUD::field('hasBalcony');
-        CRUD::field('id');
         CRUD::field('isSold');
-        CRUD::field('liveableSQM');
-        CRUD::field('name');
-        CRUD::field('roomCount');
         CRUD::field('sqPrice');
+        CRUD::field('roomCount');
+        CRUD::field('balconySQM');
+        CRUD::field('liveableSQM');
         CRUD::field('sumSQM');
+        CRUD::field('compassDirection');
         CRUD::field('typeID');
-        CRUD::field('updated_at');
+        $this->crud->addField(
+            [   // Upload
+                'name'      => 'image',
+                'label'     => 'Image',
+                'type'      => 'upload_multiple',
+                'upload'    => true,
+                'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
+                'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URLs this will make a URL that is valid for the number of minutes specified
+            ]
+        );
+//        CRUD::field('id');
+//        CRUD::field('created_at');
+//        CRUD::field('updated_at');
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+
     }
 }

@@ -26,6 +26,11 @@ class FlatsRequest extends FormRequest
     {
         return [
             // 'name' => 'required|min:5|max:255'
+            'upload_multiplejijiji.*' => [
+                'required',
+                'max:1', // file size in KB
+//                'mimetypes:image/jpeg', // allow only some mimetypes
+            ],
         ];
     }
 
