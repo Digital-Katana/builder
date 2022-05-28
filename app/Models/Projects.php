@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Projects extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     protected $table = 'projects';
@@ -25,7 +26,7 @@ class Projects extends Model
 
     public function pictures(): HasMany
     {
-        return $this->hasMany(ProjectsPictures::class,'projectID');
+        return $this->hasMany(ProjectPictures::class,'projectID');
     }
 
     public function getRendersAttribute(): Collection

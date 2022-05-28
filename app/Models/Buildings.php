@@ -12,6 +12,7 @@ use phpDocumentor\Reflection\Project;
 
 class Buildings extends Model
 {
+    use \Backpack\CRUD\app\Models\Traits\CrudTrait;
     use HasFactory;
 
     protected $table = 'buildings';

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use SebastianBergmann\CodeCoverage\Report\Xml\Project;
 
-class ProjectsPictures extends Model
+class ProjectPictures extends Model
 {
     use HasFactory;
 

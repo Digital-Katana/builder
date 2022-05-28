@@ -7,7 +7,7 @@ use App\Models\BuildingPictures;
 use App\Models\Floors;
 use App\Models\FloorPictures;
 use App\Models\Projects;
-use App\Models\ProjectsPictures;
+use App\Models\ProjectPictures;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -17,7 +17,7 @@ class WelcomeController extends Controller
 {
     public function index(): Response
     {
-        $ProjectsPictures = ProjectsPictures::where('type', 'RENDER')->get();
+        $ProjectsPictures = ProjectPictures::where('type', 'RENDER')->get();
 
         return Inertia::render('Welcome', [
             'projectPictures' => $ProjectsPictures
