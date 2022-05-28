@@ -21990,7 +21990,7 @@ __webpack_require__.r(__webpack_exports__);
       sqmFrom: 0,
       sqmTo: 300,
       priceFrom: 0,
-      priceTo: 2000000,
+      priceTo: 200000,
       hasBalcony: 'all',
       floorFrom: 0,
       floorTo: 35,
@@ -24065,7 +24065,7 @@ var _hoisted_24 = {
 
 var _hoisted_25 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
   "class": "range-slider__value"
-}, "2000000", -1
+}, "200000", -1
 /* HOISTED */
 );
 
@@ -24365,7 +24365,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "range-slider__range",
         type: "range",
         min: "0",
-        max: "2000000",
+        max: "200000",
         step: "1"
       }, null, 512
       /* NEED_PATCH */
@@ -24376,7 +24376,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "class": "range-slider__range",
         type: "range",
         min: "0",
-        max: "2000000",
+        max: "200000",
         step: "1"
       }, null, 512
       /* NEED_PATCH */

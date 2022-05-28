@@ -41,7 +41,7 @@
                                 <div class="form-group col-md-6">
                                     <p>price From :</p>
                                     <div class="range-slider">
-                                        <input v-model="form.priceFrom" class="range-slider__range" type="range" min="0" max="2000000"
+                                        <input v-model="form.priceFrom" class="range-slider__range" type="range" min="0" max="200000"
                                                step="1">
                                         <span class="range-slider__value">0</span><span> $</span></div>
                                     <!-- edn range-slider -->
@@ -50,9 +50,9 @@
                                 <div class="form-group col-md-6">
                                     <p>price to :</p>
                                     <div class="range-slider">
-                                        <input v-model="form.priceTo" class="range-slider__range" type="range" min="0" max="2000000"
+                                        <input v-model="form.priceTo" class="range-slider__range" type="range" min="0" max="200000"
                                                step="1">
-                                        <span class="range-slider__value">2000000</span><span> $</span></div>
+                                        <span class="range-slider__value">200000</span><span> $</span></div>
                                     <!-- edn range-slider -->
                                 </div>
                                 <!-- end form-group -->
@@ -257,7 +257,7 @@ export default {
             sqmFrom: 0,
             sqmTo: 300,
             priceFrom: 0,
-            priceTo: 2000000,
+            priceTo: 200000,
             hasBalcony: 'all',
             floorFrom: 0,
             floorTo: 35,
