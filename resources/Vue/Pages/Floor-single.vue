@@ -38,7 +38,7 @@
                     <div v-for="(image, index) in floor.Renders" class="swiper-slide">
                         <figure class="project-box">
                             <Link href="#">
-                                <img :src="'/images/Floors/'+image['imageName']" alt="Image">
+                                <img :src="'/storage/images/Floors/'+image['imageName']" alt="Image">
                             </Link>
                         </figure>
                     </div>
@@ -66,7 +66,7 @@
                             <Link :href="'/projects/' + floor.building.project.id + '/buildings/'+ floor.building.id + '/floors/'+ floor.id + '/flats/' + flat.id " v-for="(flat, index) in floor.flats" class="col-md-3 pb-5">
                                 <div class="recent-news border">
                                     <figure>
-                                        <img v-if="flat.Renders.length > 0" :src="'/images/Flats/' + flat.Renders[0]['imageName']" alt="Image">
+                                        <img v-if="flat.Renders.length > 0" :src="'/storage/images/Flats/' + flat.Renders[0]['imageName']" alt="Image">
                                     </figure>
                                     <div class="content">
 <!--                                        <small>29 February, 2020</small>-->

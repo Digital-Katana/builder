@@ -29,7 +29,7 @@
                             <li v-for="(project, index) in projects" class="one">
                                 <figure class="project-box">
                                     <Link :href="'projects/'+project.id">
-                                    <img :src="'/images/Projects/' + projectPictures[index]['imageName']" alt="Image">
+                                    <img :src="'/storage/images/Projects/' + projectPictures[index]['imageName']" alt="Image">
                                     </Link>
                                     <figcaption>
                                         <h5>{{ project.name }}</h5>

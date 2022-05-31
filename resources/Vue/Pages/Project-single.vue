@@ -23,7 +23,7 @@
                     <div v-for="(image, index) in project.Renders" class="swiper-slide">
                         <figure class="project-box">
                             <a href="#">
-                                <img :src="'/images/Projects/'+image['imageName']" alt="Image">
+                                <img :src="'/storage/images/Projects/'+image['imageName']" alt="Image">
                             </a>
                         </figure>
                     </div>
@@ -51,7 +51,7 @@
                                 <div class="recent-news border">
                                     <figure>
                                         <img v-if="building.Renders.length > 0"
-                                             :src="'/images/Buildings/' + building.Renders[0]['imageName']"
+                                             :src="'/storage/images/Buildings/' + building.Renders[0]['imageName']"
                                              alt="Image">
                                     </figure>
                                     <div class="content">

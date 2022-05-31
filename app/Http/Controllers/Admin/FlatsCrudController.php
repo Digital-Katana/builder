@@ -86,12 +86,25 @@ class FlatsCrudController extends CrudController
         CRUD::field('typeID');
         $this->crud->addField(
             [   // Upload
-                'name'      => 'image',
-                'label'     => 'Image',
+                'name'      => 'photos',
+                'label'     => 'Photos',
                 'type'      => 'upload_multiple',
                 'upload'    => true,
-                'disk'      => 'uploads', // if you store files in the /public folder, please omit this; if you store them in /storage or S3, please specify it;
-                'temporary' => 10 // if using a service, such as S3, that requires you to make temporary URLs this will make a URL that is valid for the number of minutes specified
+            ]
+        );
+
+        $flat = $this->crud->getCurrentEntry();
+
+        $this->crud->addField(
+            [   // Upload
+                'label'     => "Floor",
+                'type'      => 'select',
+                'name'      => 'floorID',
+                'entity'    => 'floor',
+                'attribute' => 'floorNumber',
+                'options'   => (function ($query) use ($flat) {
+                    return $query->orderBy('floorNumber', 'ASC')->where('buildingID', $flat->floor->building->id)->get();
+                }),
             ]
         );
 //        CRUD::field('id');

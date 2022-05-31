@@ -46,15 +46,15 @@
                 <div class="swiper-container slider-main">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/Projects/IMG-4314.JPG"></div>
+                            <div class="slide-image" data-background="/storage/images/Projects/IMG-4314.JPG"></div>
                         </div>
                         <!-- end swiper-slide -->
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/Projects/IMG-4315.JPG"></div>
+                            <div class="slide-image" data-background="/storage/images/Projects/IMG-4315.JPG"></div>
                         </div>
                         <!-- end swiper-slide -->
                         <div class="swiper-slide">
-                            <div class="slide-image" data-background="images/Projects/IMG-4316.JPG"></div>
+                            <div class="slide-image" data-background="/storage/images/Projects/IMG-4316.JPG"></div>
                         </div>
                         <!-- end swiper-slide -->
                     </div>
@@ -120,7 +120,7 @@
                     </div>
                     <!-- end col-12 -->
                     <div class="col-lg-6">
-                        <figure class="side-image"><img src="images/Projects/IMG-4318.JPG" alt="Image"></figure>
+                        <figure class="side-image"><img src="/storage/images/Projects/IMG-4318.JPG" alt="Image"></figure>
                         <!-- end side-image -->
                     </div>
                     <!-- end col-6 -->
@@ -215,7 +215,7 @@
                     <div v-for="(project, index) in projectPictures" class="swiper-slide">
                         <figure class="project-box">
                             <Link :href="'projects/'+project.projectID">
-                                <img :src="'/images/Projects/' + project.imageName" alt="Image">
+                                <img :src="'/storage/images/Projects/' + project.imageName" alt="Image">
                             </Link>
                             <figcaption>
                                 <h5>Life Science Center</h5>

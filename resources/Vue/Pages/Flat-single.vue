@@ -40,7 +40,7 @@
                     <div v-for="(image, index) in flat.Renders" class="swiper-slide">
                         <figure class="project-box">
                             <Link href="#">
-                                <img :src="'/images/Flats/'+image['imageName']" alt="Image">
+                                <img :src="'/storage/images/Flats/'+image['imageName']" alt="Image">
                             </Link>
                         </figure>
                     </div>

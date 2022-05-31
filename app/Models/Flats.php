@@ -22,7 +22,7 @@ class Flats extends Model
     protected $primaryKey = 'id';
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-    protected $appends = ['Renders', 'Blueprints','Image'];
+    protected $appends = ['Renders', 'Blueprints'];
 
     protected $fillable = [
         'name',
@@ -37,10 +37,11 @@ class Flats extends Model
         'sumSQM',
         'compassDirection',
         'typeID',
+        'photos',
     ];
 
     protected $casts = [
-        'image' => 'array'
+        'photos' => 'array'
     ];
 
     public function floor(): BelongsTo
@@ -64,12 +65,13 @@ class Flats extends Model
     }
 
     //mutators
-    public function Image(): Attribute
+    public function setPhotosAttribute($value)
     {
-        return Attribute::make(
-            get: fn($value) => $value,
-            set: fn($value) => Storage::put(public_path('example.txt'),'example.txt')
-        );
+        $attribute_name = "photos";
+        $disk = "public";
+        $destination_path = "images/Flats";
+
+        $this->uploadMultipleFilesToDisk($value, $attribute_name, $disk, $destination_path);
     }
 
 }

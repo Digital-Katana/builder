@@ -169,7 +169,7 @@
                             <Link :href="'/projects/' + flat.floor.building.project.id + '/buildings/'+ flat.floor.building.id + '/floors/'+ flat.floor.id + '/flats/' + flat.id " v-for="(flat, index) in flats.data" class="col-md-3 pb-5">
                                 <div class="recent-news border">
                                     <figure>
-                                        <img v-if="flat.Renders.length > 0" :src="'/images/Flats/' + flat.Renders[0]['imageName']" alt="Image">
+                                        <img v-if="flat.Renders.length > 0" :src="'/storage/images/Flats/' + flat.Renders[0]['imageName']" alt="Image">
                                     </figure>
                                     <div class="content">
                                         <!--                                        <small>29 February, 2020</small>-->

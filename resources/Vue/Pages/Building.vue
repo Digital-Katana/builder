@@ -30,7 +30,7 @@
                             <li v-for="(building, index) in buildings" class="one">
                                 <figure class="project-box">
                                     <Link :href="'buildings/'+building.id">
-                                        <img :src="'/images/Buildings/' + buildingPictures[index]['imageName']" alt="Image">
+                                        <img :src="'/storage/images/Buildings/' + buildingPictures[index]['imageName']" alt="Image">
                                     </Link>
                                     <figcaption>
                                         <h5>{{ building.name }}</h5>
