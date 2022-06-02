@@ -1,6 +1,12 @@
 @import "colors";
 
-input[type=submit], input[type=button], button[type=button], button[type=submit] .btn-action-admin {
+// Font-Awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+.btn-action-admin {
     color: white;
     font-size: 16px;
     width: 40px;

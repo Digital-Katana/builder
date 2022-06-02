@@ -38,16 +38,16 @@
     <link rel="stylesheet" href="/css/fancybox.min.css">
     <link rel="stylesheet" href="/css/swiper.min.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
+    @if( str_contains(url()->current(), '/admin') )
+        <link rel="stylesheet" href="/css/admin.css">
+    @else
+        <link rel="stylesheet" href="/css/style.css">
+    @endif
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @inertiaHead
-    {{--For Admin--}}
-    @if( str_contains(url()->current(), '/admin') )
-        <link rel="stylesheet" href="/css/admin.css">
-    @endif
 </head>
 <body>
 

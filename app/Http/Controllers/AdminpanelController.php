@@ -10,7 +10,7 @@ use Inertia\Inertia;
 class AdminpanelController extends Controller
 {
     public function getProjects(){
-        $projects = Projects::paginate(40);
+        $projects = Projects::paginate(15);
 
         return Inertia::render('Admin/projects', [
             'projects' => $projects,
