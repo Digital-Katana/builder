@@ -1,10 +1,12 @@
 {
-    "/js/app.js": "/js/app.js?id=9bbad6f3661c6f96034b51ff6364e63d",
-    "/css/lineicons.css": "/css/lineicons.css?id=ce8d0105794da8a424954a2c9a892ad9",
-    "/css/fancybox.min.css": "/css/fancybox.min.css?id=3773a1128bb098e09c609d42d2ddf88d",
+    "/js/app.js": "/js/app.js?id=497043dec773153ba61f6266522b4798",
     "/css/bootstrap.min.css": "/css/bootstrap.min.css?id=c7e0b70dc416931a2a6a6ece9e0267cc",
-    "/css/style.css": "/css/style.css?id=ab0d3e581af0cf7437ea342a28ad5c05",
+    "/css/admin.css": "/css/admin.css?id=b9c2346a7feade98d10737752d4b6257",
+    "/css/login.css": "/css/login.css?id=36af945650fe1d53581c3649dd05e83f",
+    "/css/style.css": "/css/style.css?id=49a62baa09d0ab6f1ae540fa187f18b3",
     "/css/app.css": "/css/app.css?id=68b329da9893e34099c7d8ad5cb9c940",
     "/css/swiper.min.css": "/css/swiper.min.css?id=9cec69ed9979f2ddf4f46db4b9e0ba2e",
-    "/css/odometer.min.css": "/css/odometer.min.css?id=f44eb8986560c8df5a4414132eaa4ed0"
+    "/css/odometer.min.css": "/css/odometer.min.css?id=f44eb8986560c8df5a4414132eaa4ed0",
+    "/css/lineicons.css": "/css/lineicons.css?id=ce8d0105794da8a424954a2c9a892ad9",
+    "/css/fancybox.min.css": "/css/fancybox.min.css?id=3773a1128bb098e09c609d42d2ddf88d"
 }

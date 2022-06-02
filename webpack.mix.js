@@ -21,6 +21,8 @@ mix.js('resources/js/app.js', 'public/js')
     .postCss('resources/css/odometer.min.css', 'public/css')
     // .postCss('resources/css/style.css', 'public/css')
     .sass('resources/css/style.scss', 'public/css')
+    .sass('resources/css/login.scss', 'public/css')
+    .sass('resources/css/admin.scss', 'public/css')
     .postCss('resources/css/swiper.min.css', 'public/css')
     .postCss('resources/css/app.css', 'public/css', [
         //

@@ -95,8 +95,7 @@ theme.
 	transition: all .25s ease-in-out;}
 
 
-$color-dark : #0b0b0b;
-$color-main : #feed01;
+@import "colors";
 
 
 /* CUSTOM FONTS */
@@ -983,6 +982,13 @@ input::-moz-focus-inner, input::-moz-focus-outer {  border: 0;}
 	.footer .footer-bottom ul li{ margin-left: 0; margin-right: 10px;}
 }
 
+
+// Font-Awesome
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
 // Pagination
 
 .Page {
@@ -1006,4 +1012,17 @@ input::-moz-focus-inner, input::-moz-focus-outer {  border: 0;}
         transition: all 0.25s ease-in-out;
         border: 2px solid $color-dark !important;
     }
+}
+
+// text and background colors
+.text-primary {
+    color: $color-main;
+}
+
+.bg-primary {
+    background: $color-main;
+}
+
+.bg-secondary {
+    background: $color-main;
 }

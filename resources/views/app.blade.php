@@ -44,6 +44,10 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @inertiaHead
+    {{--For Admin--}}
+    @if( str_contains(url()->current(), '/admin') )
+        <link rel="stylesheet" href="/css/admin.css">
+    @endif
 </head>
 <body>
 
@@ -57,7 +61,6 @@
     <script src="/js/odometer.min.js"></script>
     <script src="/js/isotope.min.js"></script>
 
-    <script src="/js/scripts.js"></script>
 </body>
 
 

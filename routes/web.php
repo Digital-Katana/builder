@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminpanelController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\FlatsController;
 use App\Http\Controllers\ProjectsController;
@@ -86,4 +88,21 @@ Route::get('/offices', function () {
 Route::get('/our-history', function () {
     return inertia('Our-history');
 //    return view('Our-history');
+});
+
+// only non-authorized - group
+Route::group(['middleware' => ['guest']], static function () {
+
+    Route::inertia('/login', 'Admin/login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+});
+
+Route::group(['middleware' => 'auth'], static function () {
+    Route::inertia('/admin', 'Admin/admin');
+
+    //projects
+    Route::get('/admin/projects', [AdminpanelController::class, 'getProjects']);
+
+    // user logout
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });

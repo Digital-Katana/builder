@@ -235,7 +235,6 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
 import Layout from "../Shared/Layout";
 import {Link} from "@inertiajs/inertia-vue3";
 import { Inertia } from '@inertiajs/inertia'
